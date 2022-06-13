@@ -1,0 +1,101 @@
+h1.page_title {
+    text-align: center;
+    /* margin-left: 500px; */
+}
+
+a:link.menu {
+    font-size: 125%;
+    color:black
+}
+
+a:visited.menu {
+    color:blue;
+}
+
+ul.page_header {
+    text-align: center;
+    /* margin-left: 500px; */
+}
+
+li.h_menu {
+    display:inline-block;
+    margin-right: 20px;
+}
+
+.top {
+    --offset: 50px; 
+
+    position: sticky;
+    bottom: 20px;      
+    margin-right: 10px; 
+    place-self: end;
+    margin-top: calc(100vh + var(--offset));
+  
+    /* visual styling */
+    text-decoration: none;
+    padding: 10px;
+    font-family: sans-serif;
+    color: #fff;
+    background: #000;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+body {
+    display: grid;
+    /* grid-template-columns: auto auto; */
+}
+
+p {
+    font-size: 25px;
+  }
+
+/* Mobile phone*/
+#head_wrap {
+	padding-left: 0;
+}
+
+#page_wrap {
+    padding-left: 225px;
+}
+
+/* Desktop */ 
+@media(min-width: 768px){
+	/* Side Menu */
+	.s_menu{
+		background-color: rgba(20,20,20,1); 
+		position: fixed; 
+		top: 51px; 
+		left: 225px;
+		margin-left: -225px;
+		width:225px; 
+		height: 100%;
+	}
+	.s_menu li {
+		width: 225px;
+		display: block;
+	}
+}
+
+
+/* Common Settings */
+/* Horizontal Menu */
+li.top_menu_item {
+	display: inline-block;
+	float: right;
+	padding-right: 20px;
+	
+}
+		
+.top_menu {
+	background-color: rgba(20,20,20,1);
+}
+
+/* Add a gray color to all navbar links */
+.navbar li a, .navbar .navbar-brand { 
+    color: #d5d5d5 !important;
+}
+
+footer {
+    align-items: center;
+}

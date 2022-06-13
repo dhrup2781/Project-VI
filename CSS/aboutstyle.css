@@ -1,0 +1,91 @@
+h1 {
+    text-align: center;
+}
+
+h2.our_team {
+    font-size: 300%;
+    text-align: center;
+}
+
+ul {
+    text-align: center;
+}
+
+li.h_menu {
+    display:inline-block;
+    margin-right: 20px;
+}
+
+tr.photo_name{
+    font-size: 125%;
+}
+
+tr.name_description {
+    font-size: 125%;
+}
+
+table.top_table {
+    margin-bottom: 50px;
+    border: 3px solid;
+    border-color: purple;
+}
+
+table.map_table {
+
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid;
+    border-color: purple;
+    padding: 10px;
+
+}
+
+td.map_cell {
+    width: 60%;
+}
+
+/* Mobile phone*/
+#head_wrap {
+	padding-left: 0;
+}
+
+#page_wrap {
+    padding-left: 225px;
+}
+
+/* Desktop */ 
+@media(min-width: 768px){
+	/* Side Menu */
+	.s_menu{
+		background-color: rgba(20,20,20,1); 
+		position: fixed; 
+		top: 51px; 
+		left: 225px;
+		margin-left: -225px;
+		width:225px; 
+		height: 100%;
+	}
+	.s_menu li {
+		width: 225px;
+		display: block;
+	}
+}
+
+
+/* Common Settings */
+/* Horizontal Menu */
+li.top_menu_item {
+	display: inline-block;
+	float: right;
+	padding-right: 20px;
+	
+}
+		
+.top_menu {
+	background-color: rgba(20,20,20,1);
+}
+
+/* Add a gray color to all navbar links */
+.navbar li a, .navbar .navbar-brand { 
+    color: #d5d5d5 !important;
+}

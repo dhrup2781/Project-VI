@@ -1,0 +1,131 @@
+h1.page_title {
+    text-align: center;
+    color: black;
+    /* margin-left: 500px; */
+}
+a:link.menu {
+    font-size: 125%;
+    color:black
+}
+
+ul.page_header {
+    text-align: center;
+}
+
+li.h_menu {
+    display:inline-block;
+    margin-right: 20px;
+}
+
+table {
+    table-layout: fixed;
+    margin: 0px auto 0px auto;
+    width: 90%;
+    border-spacing: 5px;
+    border: 4px solid black;
+    font: bold;
+}
+
+thead {
+    font-size: medium;
+    font-weight: 200;
+    border: 4px solid black;
+}
+
+#tfoot {
+    text-align: center;
+}
+
+#footer {
+    text-align: center;
+    font: bolder;
+    color: black;
+}
+
+#footer.a:link {
+    color: black;
+}
+
+tr {
+    background-color: rgba(121, 46, 165, 0.0);
+}
+
+td {
+    text-align: center;
+    border: 2px solid black;
+}
+
+td:hover {
+    background-color: aquamarine;
+    border: 0.5px dashed black;
+    padding: 0px 0px;
+    font: bold;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2.our_team {
+    font-size: 300%;
+    text-align: center;
+}
+
+ul {
+    text-align: center;
+}
+
+li.h_menu {
+    display:inline-block;
+    margin-right: 20px;
+}
+
+/* Mobile phone*/
+#head_wrap {
+	padding-left: 0;
+}
+
+#page_wrap {
+    padding-left: 225px;
+}
+
+/* Desktop */ 
+@media(min-width: 768px){
+	/* Side Menu */
+	.s_menu{
+		background-color: rgba(20,20,20,1); 
+		position: fixed; 
+		top: 51px; 
+		left: 225px;
+		margin-left: -225px;
+		width:225px; 
+		height: 100%;
+	}
+	.s_menu li {
+		width: 225px;
+		display: block;
+	}
+}
+
+
+/* Common Settings */
+/* Horizontal Menu */
+li.top_menu_item {
+	display: inline-block;
+	float: right;
+	padding-right: 20px;
+	
+}
+		
+.top_menu {
+	background-color: rgba(20,20,20,1);
+}
+
+/* Add a gray color to all navbar links */
+.navbar li a, .navbar .navbar-brand { 
+    color: #d5d5d5 !important;
+}
+
+footer {
+    align-items: center;
+}

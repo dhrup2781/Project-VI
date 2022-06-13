@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>      			
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="../CSS/loginstyle.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <style>
+        body {
+            background-image: url(../images/background.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+    <div id="head_wrap">
+        <header>
+            <nav class="navbar navbar-inverse navbar-fixed-top top_menu" role="navigation">	
+                <!-- Logo and collapsible menu --> 
+                <div class="navbar-header">
+                <!-- Collapsible version of navbar goes here with a target to the id below -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">Project VI</a>
+                </div>
+                <!-- Side Menu - collapses to small menu on small screens -->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right s_menu">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="project_plan.html">Plan</a></li>
+                        <li><a href="logbook.html">Log Book</a></li>
+                        <li><a href="login.html">Log in</a></li>
+                        <li><a href="request_access.html">Signup</a></li>
+                        <li><a href="index.php">Elevator Control</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+            </nav>	
+        </header>
+    </div>
+    
+    <div id="page_wrap">
+        <br><br><br>
+        <fieldset>
+        <form action="../PHP/login.php" method="post">
+            <h1> Login</h1>
+            <div>
+                <label id="userlabel" for="user" class="text_label">Username: </label>
+                <input id="user" class="text_input" type="text" name="username" required />
+            </div>
+            
+            <div>
+                <label for="pass" class="text_label">Password:</label>
+                <input id="pass" class="password_input" type="password" name="password" required />
+            </div>
+            
+            <!-- <input type="submit" />  -->
+            <input type="image" alt="submit button" src="../images/submit.jpg" width="150px" />
+            <p><a href="request_access.html">Request Access</a></p>
+        
+        </fieldset>
+        </form>
+        <footer>
+        <p>Copyright &copy Dhrup Patel;Alex Wu;Mike Wu</p>
+        </footer>
+    </div>    
+</body>
+</html>
