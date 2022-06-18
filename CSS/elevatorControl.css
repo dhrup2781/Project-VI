@@ -1,0 +1,89 @@
+/* Mobile phone*/
+#head_wrap {
+	padding-left: 0;
+}
+
+/* Desktop */ 
+@media(min-width: 768px){
+	/* Side Menu */
+	.s_menu{
+		background-color: rgba(20,20,20,1); 
+		position: fixed; 
+		top: 51px; 
+		left: 225px;
+		margin-left: -225px;
+		width:225px; 
+		height: 100%;
+	}
+	.s_menu li {
+		width: 225px;
+		display: block;
+	}
+}
+
+
+/* Common Settings */
+/* Horizontal Menu */
+li.top_menu_item {
+	display: inline-block;
+	float: right;
+	padding-right: 20px;
+	
+}
+		
+.top_menu {
+	background-color: rgba(20,20,20,1);
+}
+
+/* Add a gray color to all navbar links */
+.navbar li a, .navbar .navbar-brand { 
+    color: #d5d5d5 !important;
+}
+
+#page_wrap {
+	margin-left: 450px;
+}
+
+#heading {
+    margin-left: 225px;
+}
+
+#floorButtons {
+    margin-left:350px;
+}
+
+#openDoor {
+    margin-left: 200px;
+}
+
+#closeDoor {
+    margin-left: 50px;
+}
+
+#help {
+    margin-left: 275px;
+}
+
+#emergency {
+    margin-left: 50px;
+}
+
+#stop {
+    margin-left: 330px;
+}
+
+footer {
+    margin-left: 700px;
+}
+
+#elevatorButtons {
+    border: 5px solid black;
+    border-radius: 15px;
+    width: 750px;
+    height: 500px;
+    padding-top: 25px;
+}
+
+#floorButtons:active {
+    color: green;
+}
