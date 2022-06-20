@@ -1,4 +1,4 @@
-input.submit {
+/* input.submit {
     color: rgba(0,0,255,0.5);
     background-color: #FFF;
     
@@ -15,6 +15,28 @@ input.submit:active {
     color: #FFF;
     background-color:  rgba(255, 7, 7, 0.5); 
     
+} */
+
+.submit {
+    margin: 5px auto 5px auto;
+    padding: 10px 20px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+  
+.submit:hover {background-color: #2dc2d6}
+  
+.submit:active {
+    background-color: #2dc2d6;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 fieldset {

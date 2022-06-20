@@ -24,13 +24,30 @@
     session_start();
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $authenticated = FALSE;
 
-    if ($username && $password) {
+    $db = new PDO('mysql:host=127.0.0.1; dbname=authorizedUsers', 'alex', 'password123');
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+    // Authenticate against the db
+
+    $query = "SELECT * FROM authorizedUsers WHERE username = '$username'";
+    $rows = $db->query($query);
+    foreach ($rows as $row) {
+        echo $row['username'];
+        if($username === $row['username'] && $password === $row['password']) {
+            $authenticated = TRUE;
+        } else {
+            echo "wrong password";
+        }
+    }
+
+    if ($authenticated) {
         $_SESSION['username'] = $username;
         echo "<p>Congratulations, you are now logged into the site.</p>";
         echo "<p>Please click <a href=\"index.php\">here</a> to be taken to our members only page</p>";
     }
-    else {
-        echo "<p>Please enter a username and password</p>";
-    }
+    // else {
+    //     echo "<p>Please enter a username and password</p>";
+    // }
 ?>

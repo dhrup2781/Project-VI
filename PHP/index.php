@@ -12,7 +12,6 @@
 	else {
 		echo "<p>You must be logged in to view this page!</p>";
 	}
-
 ?>
 <?php
 	function update_elevatorNetwork(int $node_ID, int $new_floor =1): int {
@@ -42,10 +41,9 @@
 	}
 ?>
 
- 
-<html>
 
- 	<h1>ESE Project VI Elevator</h1> 
+<html>
+	<h1>ESE Project VI Elevator</h1> 
 	
 		<?php 
 			if(isset($_POST['newfloor'])) {
@@ -65,4 +63,5 @@
 		  
 		
 </html>
+ 
  

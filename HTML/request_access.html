@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>      			
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="../css/req_acc.css" type="text/css" rel="stylesheet" />
+    <link href="../CSS/req_acc.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
     <style>
@@ -66,13 +66,13 @@
             <fieldset>
                 <legend>General info</legend>
                 <br><br>
-            <label><input type="radio" name="fac_or_student" value="faculty" > Faculty </label>
-            <label><input type="radio" name="fac_or_student" value="student" > Student </label><br />
+            <label><input type="radio" name="fac_or_student" value="faculty" required> Faculty </label>
+            <label><input type="radio" name="fac_or_student" value="student" required> Student </label><br />
 
             <p>My involvement in the project is ...</p>
-            <label><input type="checkbox" name="involvement[]" value="none" > None </label><br />
-            <label><input type="checkbox" name="involvement[]" value="some" > Some <br /></label>
-            <label><input id="lots" type="checkbox" name="involvement[]" value="lots" > Lots </label><br />
+            <label><input type="checkbox" name="involvement[]" value="none"> None </label><br />
+            <label><input type="checkbox" name="involvement[]" value="some"> Some <br /></label>
+            <label><input id="lots" type="checkbox" name="involvement[]" value="lots"> Lots </label><br />
             
             <p>Do you drive?</p>
             <select name="driver" id="car">
