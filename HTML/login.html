@@ -52,24 +52,31 @@
     <div id="page_wrap">
         <br><br><br>
         <fieldset>
-        <form action="../PHP/login.php" method="post">
-            <h1> Login</h1>
-            <div>
-                <label id="userlabel" for="user" class="text_label">Username: </label>
-                <input id="user" class="text_input" type="text" name="username" required />
-            </div>
-            
-            <div>
-                <label for="pass" class="text_label">Password:</label>
-                <input id="pass" class="password_input" type="password" name="password" required />
-            </div>
-            
-            <!-- <input type="submit" />  -->
-            <input type="image" alt="submit button" src="../images/submit.jpg" width="150px" />
-            <p><a href="request_access.html">Request Access</a></p>
+            <form action="../PHP/login.php" method="post">
+                <h1> Login</h1>
+                <div>
+                    <label id="userlabel" for="user" class="text_label">Username: </label>
+                    <input id="user" class="text_input" type="text" name="username" required />
+                </div>
+                
+                <div>
+                    <label for="pass" class="text_label">Password:</label>
+                    <input id="pass" class="password_input" type="password" name="password" required />
+                </div>
+                
+                <!-- <input type="submit" />  -->
+                <!-- <input type="image" alt="submit button" src="../images/submit.jpg" width="150px" /> -->
+                <input type="submit" class="button" value="Log in">
+                <p><a href="request_access.html">Request Access</a></p>
+
+                <!-- <h1>Error Messages</h1> -->
+                <p id="err"></p>
         
+                <script src="eventListener.js"></script>
+            
+            
+            </form>
         </fieldset>
-        </form>
         <footer>
         <p>Copyright &copy Dhrup Patel;Alex Wu;Mike Wu</p>
         </footer>

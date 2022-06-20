@@ -1,21 +1,36 @@
 <?php 
-$submitted = !empty($_POST); 
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>Form submited? <?php echo (int) $submitted; ?></p>
-    <p>Login info</p>
-    <ul>
-        <li>Username: <?php echo $_POST['username'] ?></li>
-        <li>Password: <?php echo $_POST['password'] ?></li>
-    </ul>
-</body>
-</html>
+// For using cookies:
+
+// $submitted = !empty($_POST);
+// if ($submitted == 1) {
+//     $username = $_POST['username'];
+//     $password = $_POST['password'];
+//     setcookie('username', $username);
+//     setcookie('password', $password);
+// } 
+// else {
+//     $username = $_COOKIE['username'];
+//     $password = $_COOKIE['password'];
+// }
+
+// echo "<p>Form submitted (1 for True): $submitted</p>";
+// echo "<p>Username: $username</p>";
+// echo "<p>Password: $password</p>";
+
+
+// For using sessions:
+
+    session_start();
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if ($username && $password) {
+        $_SESSION['username'] = $username;
+        echo "<p>Congratulations, you are now logged into the sire.</p>";
+        echo "<p>Please click <a href=\"index.php\">here</a> to be taken to our members only page</p>";
+    }
+    else {
+        echo "<p>Please enter a username and password</p>";
+    }
+?>
