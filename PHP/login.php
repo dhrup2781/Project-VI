@@ -27,7 +27,7 @@
     $authenticated = FALSE;
 
     // $db = new PDO('mysql:host=127.0.0.1; dbname=authorizedUsers', 'alex', 'password123');
-    $db = new PDO('mysql:host=127.0.0.1; dbname=authorizedUsers', 'ese', 'ese');
+    $db = new PDO('mysql:host=127.0.0.1; dbname=elevator', 'ese', 'ese');
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
     // Authenticate against the db
