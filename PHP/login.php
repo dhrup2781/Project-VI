@@ -32,7 +32,7 @@
 
     // Authenticate against the db
 
-    $query = "SELECT * FROM authorizedUsers WHERE username = '$username'";
+    $query = "SELECT * FROM elevator WHERE username = '$username'";
     $rows = $db->query($query);
     foreach ($rows as $row) {
         echo $row['username'];
