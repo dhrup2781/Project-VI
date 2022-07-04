@@ -1,19 +1,4 @@
 <?php
-	session_start();
-
-	if (isset($_SESSION['username'])) {
-		echo "Welcome, " . $_SESSION['username'] . "!<br />";
-
-		echo "<p>Top secret content here</p>";
-
-		echo "Click <a href='logout.php'>here</a> to logout";
-
-	}
-	else {
-		echo "<p>You must be logged in to view this page!</p>";
-	}
-?>
-<?php
 	function update_elevatorNetwork(int $node_ID, int $new_floor =1): int {
 		$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');
 		$query = 'UPDATE elevatorNetwork 
