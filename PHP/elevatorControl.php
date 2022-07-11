@@ -23,7 +23,7 @@
 			}
 			return $current_floor;
 	}
-    session_start(); 
+
     // Members only section
     if(isset($_SESSION['username'])) {
         // Include the database functions file

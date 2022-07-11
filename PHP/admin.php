@@ -53,6 +53,8 @@ if(isset($_SESSION['username'])) {
     // Display content of database
     showtable($path, $user, $pass, $tablename);
 
+    echo "<p>Click <a href='logout.php'>here</a> to log out</p>";
+
 }
 
 // Create
