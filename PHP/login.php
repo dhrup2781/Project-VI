@@ -24,6 +24,7 @@
     session_start();
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $authenticatedAdmin = FALSE;
     $authenticated = FALSE;
 
     // $db = new PDO('mysql:host=127.0.0.1; dbname=authorizedUsers', 'alex', 'password123');
@@ -36,12 +37,24 @@
     $rows = $db->query($query);
     foreach ($rows as $row) {
         echo $row['username'];
-        if($username === $row['username'] && $password === $row['password']) {
+        echo "<br>";
+        if($username === $row['username'] && $password === $row['password'] && $row['admin']==1) {
+            $authenticatedAdmin = TRUE;
+        } 
+        else if ($username === $row['username'] && $password === $row['password'] && $row['admin']==0) {
             $authenticated = TRUE;
-        } else {
-            echo "wrong password";
+        }
+        else {
+            echo "Wrong password, please go <a href='../HTML/login.html'>back</a> and try again";
         }
     }
+
+    if ($authenticatedAdmin) {
+        $_SESSION['username'] = $username;
+        echo "<p>Congratulations, you are now logged into the site.</p>";
+        echo "<p>Click <a href=\"admin.php\">here</a> to manage users.</p>";
+        echo "<p>Please click <a href=\"member.php\">here</a> to be taken to our members only page</p>";
+    } 
 
     if ($authenticated) {
         $_SESSION['username'] = $username;

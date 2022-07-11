@@ -78,7 +78,7 @@
         // } 
 
         // Sign out option
-        // echo "<p>Click <a href='logout.php'>here</a> to log out</p>";
+        echo "<p>Click <a href='logout.php'>here</a> to log out</p>";
 
     } else {
         echo "<p>You are not authorized!!! Go away!!!!! Please log in <a href='../HTML/login.html'>here</a>.</p>";
