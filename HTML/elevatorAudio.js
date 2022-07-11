@@ -1,5 +1,11 @@
-function playMusic(){
-    var music = new Audio('../audio/door.mp3');
+function playMusicDO(){
+    var music = new Audio('../audio/dooropen.mp3');
+    music.play();
+    music.currentTime=0;
+    }
+
+function playMusicDC(){
+    var music = new Audio('../audio/doorclose.mp3');
     music.play();
     music.currentTime=0;
     }
