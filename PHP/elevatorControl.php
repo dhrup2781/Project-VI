@@ -53,7 +53,11 @@
  
 		if(isset($_POST['three'])) {
 			echo "You pressed UPDATE <br>";
-			update($path, $user, $password, $tablename, "1", $status, $currentFloor, "3", $otherInfo);
+			insert($path, $user, $password, $current_date, $current_time, $status, $currentFloor, $requestedFloor, $otherInfo);
+		} elseif(isset($_POST['two'])) {
+			insert($path, $user, $password, $current_date, $current_time, $status, $currentFloor, $requestedFloor, $otherInfo);
+		} elseif(isset($_POST['one'])) {
+			insert($path, $user, $password, $current_date, $current_time, $status, $currentFloor, $requestedFloor, $otherInfo);
 		}
 
 		// Display content of database
