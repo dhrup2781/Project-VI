@@ -1,30 +1,19 @@
-<?php 
-$submitted = !empty($_POST); 
-?>
+<?php
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Requrest_access</title>
-</head>
-<body>
-    <p>Form submited? <?php echo (int) $submitted; ?></p>
-    <p>Here is ur info summary</p>
-    <ul>
-        <li>First name: <?php echo $_POST['firstname'] ?></li>
-        <li>Last name: <?php echo $_POST['lastname'] ?></li>
-        <li>Email: <?php echo $_POST['email'] ?></li>
-        <li>Birthdate: <?php echo $_POST['birthdate'] ?></li>
-        <li>Website: <?php echo $_POST['url'] ?></li>
-        <li>Faculty or student: <?php echo $_POST['fac_or_student'] ?></li>
-        <li>Contribution: <?php foreach($_POST['involvement'] as $each ) {
-            echo $each, "\n";
-        } ?></li>
-        <li>Do u drive: <?php echo $_POST['driver'] ?></li>
-        <li>Other details: <?php echo $_POST['details'] ?></li>
-    </ul>
-</body>
-</html>
+    $db = new PDO('mysql:host=127.0.0.1; dbname=authorizedUsers', 'ese', 'ese');
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+    $query = "INSERT INTO authorizedUsers (username,password) VALUES ('$username','$password')";
+
+    $result = $db->exec($query);
+    if ($result) {
+        echo "Signup successful, click <a href='../HTML/login.html'>here</a> to log in.";
+        echo "<br/>";
+    } else {
+    // $error = $db->errorInfo()[2];
+    // var_dump($error);
+    echo"Username already exist <br/> Please go <a href ='../HTML/request_access.html'>back</a> and try again";
+    }
+?>

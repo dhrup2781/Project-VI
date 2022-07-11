@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>      			
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="../CSS/req_acc.css" type="text/css" rel="stylesheet" />
+    <link href="../CSS/loginstyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
     <style>
@@ -51,8 +51,8 @@
     
     <div id="page_wrap">
         <form action="../PHP/request_access.php" method="post" id="access">
-            <h1>Request Access</h1>
-            <fieldset> 
+            
+            <!-- <fieldset> 
                 <legend>Contact details</legend>
                 <br><br>
                 <p>First name: <input type="text" name="firstname"></p>
@@ -90,8 +90,28 @@
             <input class="submit" type="submit">
             <br><br>
             </fieldset>
+        </form> -->
+        <br><br><br>
+        <fieldset>
+            <h1>Request Access</h1>
+            <div>
+                <label id="userlabel" for="user" class="text_label">Username: </label>
+                <input id="user" class="text_input" type="text" name="username" required />
+            </div>
+            
+            <div>
+                <label for="pass" class="text_label">Password:</label>
+                <input id="pass" class="password_input" type="password" name="password" required />
+            </div>
+            
+            <input type="submit" class="button" value="Sign Up" id="subbtn">
+
+            <!-- <h1>Error Messages</h1> -->
+            <p id="err"></p>
+            <p id="err2"></p>
+            <script src="eventListener.js"></script>
+        </fieldset>
         </form>
-        
         <br><br><br><br>
         <footer>
         <p>Copyright &copy Dhrup Patel;Alex Wu;Mike Wu</p>

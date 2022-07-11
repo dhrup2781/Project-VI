@@ -1,26 +1,33 @@
-/* input.submit {
-    color: rgba(0,0,255,0.5);
-    background-color: #FFF;
-    
+h1 {
+    color: red;
+}
+
+.text_label {
+    float: left;
+    width: 100px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+fieldset {
+    padding-top: 200px;
+    border: 1px solid black;
+    /*border: solid dotted dashed double; */
+    border-style: solid;
+    border-width: 5px;
+    /*margin: 1px 20px 1px 20px; */
+    padding: 1px 40px;
+    width: 500px;
+    height: 250px;
+    margin: 1px auto;
+    box-shadow: 15px 15px 10px rgba(145,0,0,0.5);
     border-radius: 20px;
 }
 
-input.submit:hover {
-    color: #FFF;
-    background-color:  rgba(0,0,255,0.5); 
-    border: solid dotted dashed double;
-}
-
-input.submit:active {
-    color: #FFF;
-    background-color:  rgba(255, 7, 7, 0.5); 
-    
-} */
-
-.submit {
-    margin: 5px auto 5px auto;
+.button {
+    margin: 10px auto 10px auto;
     padding: 10px 20px;
-    font-size: 12px;
+    font-size: 15px;
     text-align: center;
     cursor: pointer;
     outline: none;
@@ -31,40 +38,12 @@ input.submit:active {
     box-shadow: 0 9px #999;
 }
   
-.submit:hover {background-color: #2dc2d6}
+.button:hover {background-color: #2dc2d6}
   
-.submit:active {
+.button:active {
     background-color: #2dc2d6;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
-}
-
-fieldset {
-    border: 1px solid black;
-    /*border: solid dotted dashed double; */
-    border-style: solid;
-    border-width: 5px;
-    /*margin: 1px 20px 1px 20px; */
-    padding: 1px 40px;
-    padding-bottom: 25px;
-    width: 300px;
-    margin: 1px auto;
-    box-shadow: 15px 15px 10px rgba(145,0,0,0.5);
-    border-radius: 20px;
-}
-
-legend {
-    border-style: solid;
-    background-color: chocolate;
-    border-radius: 10px;
-}
-
-textarea.text {
-    color:grey;
-}
-
-textarea.text:focus {
-    color: black;
 }
 
 footer{
@@ -79,6 +58,8 @@ footer{
 #page_wrap {
     padding-left: 225px;
 }
+
+
 
 /* Desktop */ 
 @media(min-width: 768px){
@@ -115,4 +96,12 @@ li.top_menu_item {
 /* Add a gray color to all navbar links */
 .navbar li a, .navbar .navbar-brand { 
     color: #d5d5d5 !important;
+}
+
+footer {
+    align-items: center;
+}
+
+form {
+    align-content: center;
 }
