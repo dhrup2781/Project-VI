@@ -51,34 +51,35 @@
 		<br/>
 		<br/>
 		<div id="page_wrap">
-            <div id="heading">
-			    <h1>Elevator Console</h1><br/><br/>
-            </div>
-            <div id="elevatorButtons">
-				<div>
-					<h3>Current Floor:</h1>
+			<form action="../PHP/elevatorControl1.php" method="post">
+				<div id="heading">
+					<h1>Elevator Console</h1><br/><br/>
 				</div>
-                <div id="floorButtons">
-                    <br/><button type="button" class="btn btn-primary btn-lg" onclick="playMusic3()">3</button><br/><br/>
-                    <button type="button" class="btn btn-primary btn-lg" onclick="playMusic2()">2</button><br/><br/>
-                    <button type="button" class="btn btn-primary btn-lg" onclick="playMusic1()">1</button><br/><br/>
-                </div>
-                <div id="doorButtons">
-                    <button type="button" class="btn btn-secondary btn-lg" id="openDoor" onclick="playMusicDO()">OPEN DOOR</button>
-                    <button type="button" class="btn btn-secondary btn-lg" id="closeDoor" onclick="playMusicDC()">CLOSE DOOR</button><br/><br/>
-                </div>
-                <div id="extraButtons">
-                    <button type="button" class="btn btn-secondary btn-lg" id="help">Help</button>
-                    <button type="button" class="btn btn-secondary btn-lg" id="emergency">Emergency</button><br/><br/> 
-                </div>
-                <div id="stopButton">
-                    <button type="button" class="btn btn-danger s btn-lg" id="stop">STOP</button><br/><br/><br/>
-                </div>
-				<div>
-					<p>Click <a href='../PHP/logout.php'>here</a> to log out</p>
+				<div id="elevatorButtons">
+					<div>
+						<h3>Current Floor:</h1>
+					</div>
+					<div id="floorButtons">
+						<br/><button type="submit" class="btn btn-primary btn-lg" name="three" onclick="playMusic3()">3</button><br/><br/>
+						<button type="submit" class="btn btn-primary btn-lg"  name="two" onclick="playMusic2()">2</button><br/><br/>
+						<button type="submit" class="btn btn-primary btn-lg"  name="one" onclick="playMusic1()">1</button><br/><br/>
+					</div>
+					<div id="doorButtons">
+						<button type="button" class="btn btn-secondary btn-lg" name="openDoor" onclick="playMusicDO()">OPEN DOOR</button>
+						<button type="button" class="btn btn-secondary btn-lg" name="closeDoor" onclick="playMusicDC()">CLOSE DOOR</button><br/><br/>
+					</div>
+					<div id="extraButtons">
+						<button type="button" class="btn btn-secondary btn-lg" id="help">Help</button>
+						<button type="button" class="btn btn-secondary btn-lg" id="emergency">Emergency</button><br/><br/> 
+					</div>
+					<div id="stopButton">
+						<button type="button" class="btn btn-danger s btn-lg" id="stop">STOP</button><br/><br/><br/>
+					</div>
+					<div>
+						<p>Click <a href='../PHP/logout.php'>here</a> to log out</p>
+					</div>
 				</div>
-            </div>
-
+			</form>
 		</div>
         <br/>
         <br/>
