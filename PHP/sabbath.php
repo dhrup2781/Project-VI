@@ -89,6 +89,8 @@
                         $newfloor--;
                     }
                 }
+
+                echo "END OF WHILE";
                 if(isset($_POST['stop'])) {
                     break;
                 }
