@@ -69,9 +69,11 @@
                     // echo $presentFloor;
                     for ($x = 0; $x < 2; $x++) {                        
                         update_currentFloor($path, $user, $password, $tablename, $newfloor );
-                        sleep(5);
-                        $newfloor++;
                         echo $newfloor;
+                        echo "<br>";
+                    
+                        sleep(2);
+                        $newfloor++;
                     }
                 }
                 elseif ($presentFloor == 2) {
