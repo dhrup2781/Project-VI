@@ -73,7 +73,7 @@
                         echo $newfloor;
                         echo "<br>";
                     
-                        // sleep(2);
+                        sleep(10);
                         $newfloor++;
                     }
                 }
@@ -83,7 +83,9 @@
                     echo "present floor loop == 2";
                     echo "<br>";                     
                     update_currentFloor($path, $user, $password, $tablename, $newfloor );
-                    // sleep(5);
+                    echo $newFloor;
+                    echo "<br>";
+                    sleep(10);
                 }
                 elseif ($presentFloor == 3) {
                     $elevatorD = 0; // going down
@@ -92,7 +94,9 @@
                     echo "<br>";
                     for ($x = 0; $x < 2; $x++) {                        
                         update_currentFloor($path, $user, $password, $tablename, $newfloor );
-                        // sleep(5);
+                        echo $newFloor;
+                        echo "<br>";
+                        sleep(10);
                         $newfloor--;
                     }
                 }
