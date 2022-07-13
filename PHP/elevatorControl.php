@@ -58,7 +58,7 @@
             update_elevatorNetwork(3);
             sleep(5);
             echo '<script type="../HTML/elevatorAudio.js"> 
-                     playMusic3()
+                     playMusic3();
                   </script>';
             
         }
