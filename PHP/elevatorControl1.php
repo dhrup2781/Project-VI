@@ -79,7 +79,7 @@
         echo "Connected";
     
         if(isset($_POST['three'])) {
-            echo "Floor 3 is presses";
+            echo "Floor 3 is pressed";
             insert($path, $user, $pass, "3");
         }
         else if(isset($_POST['two'])) {
