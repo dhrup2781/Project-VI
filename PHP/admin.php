@@ -91,10 +91,6 @@ function delete(string $path, string $user, string $pass, string $tablename, $id
     $statement->execute();                      // Execute prepared statement
 }
 
-
-
-
-
 ?>
 
 <html>
