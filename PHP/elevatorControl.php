@@ -135,7 +135,7 @@
 						<h3>Current Floor:</h1>
 					</div>
 					<div id="floorButtons">
-						<br/><button type="submit" class="btn btn-primary btn-lg" name="three" onclick="playMusic3()">3</button><br/><br/>
+						<br/><button type="submit" class="btn btn-primary btn-lg" name="three">3</button><br/><br/>
 						<button type="submit" class="btn btn-primary btn-lg"  name="two" onclick="playMusic2()">2</button><br/><br/>
 						<button type="submit" class="btn btn-primary btn-lg"  name="one" onclick="playMusic1()">1</button><br/><br/>
 					</div>
