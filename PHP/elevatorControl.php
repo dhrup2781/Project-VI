@@ -55,12 +55,16 @@
         echo "Connected";
     
         if(isset($_POST['three'])) {
-            sleep(5);
             update_elevatorNetwork(3);
+            sleep(5);
+            echo '<script type="../HTML/elevatorAudio.js"> 
+                     playMusic3()
+                  </script>';
+            
         }
         else if(isset($_POST['two'])) {
-            sleep(5);
             update_elevatorNetwork(2);
+            sleep(5);
         }
         else if(isset($_POST['one'])) {
             sleep(5);
