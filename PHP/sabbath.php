@@ -49,68 +49,68 @@
         // Connect to database and make changes
         $db = connect($path, $user, $password);
 
-        if(isset($_POST['sabbath'])) {
+        // if(isset($_POST['sabbath'])) {
              
-            while (1) {
-                // Display content of database
-                showtable($path, $user, $password, $tablename);
+            // while (1) {
+            //     // Display content of database
+            //     showtable($path, $user, $password, $tablename);
                 
-                $newfloor = 0;
-                $elevatorD = 0; // going down
-                $presentFloor = read_currentFloor($path, $user, $password, $tablename);
-                echo "present floor is: ";
-                echo $presentFloor;
-                echo "<br>";
+            //     $newfloor = 0;
+            //     $elevatorD = 0; // going down
+            //     $presentFloor = read_currentFloor($path, $user, $password, $tablename);
+            //     echo "present floor is: ";
+            //     echo $presentFloor;
+            //     echo "<br>";
 
-                // break;
-                if ($presentFloor == 1) {
-                    $elevatorD = 1; // going up
-                    $newfloor = 2;
-                    echo "present floor loop == 1";
-                    echo "<br>";
-                    for ($x = 0; $x < 2; $x++) {                        
-                        update_currentFloor($path, $user, $password, $tablename, $newfloor );
-                        echo $newfloor;
-                        echo "<br>";
+            //     // break;
+            //     if ($presentFloor == 1) {
+            //         $elevatorD = 1; // going up
+            //         $newfloor = 2;
+            //         echo "present floor loop == 1";
+            //         echo "<br>";
+            //         for ($x = 0; $x < 2; $x++) {                        
+            //             update_currentFloor($path, $user, $password, $tablename, $newfloor );
+            //             echo $newfloor;
+            //             echo "<br>";
                     
-                        sleep(10);
-                        $newfloor++;
-                    }
-                }
-                elseif ($presentFloor == 2) {
-                    $elevatorD = 1; // going up
-                    $newfloor = 3; 
-                    echo "present floor loop == 2";
-                    echo "<br>";                     
-                    update_currentFloor($path, $user, $password, $tablename, $newfloor );
-                    echo $newFloor;
-                    echo "<br>";
-                    sleep(10);
-                }
-                elseif ($presentFloor == 3) {
-                    $elevatorD = 0; // going down
-                    $newfloor = 2;
-                    echo "present floor loop == 3";
-                    echo "<br>";
-                    for ($x = 0; $x < 2; $x++) {                        
-                        update_currentFloor($path, $user, $password, $tablename, $newfloor );
-                        echo $newFloor;
-                        echo "<br>";
-                        sleep(10);
-                        $newfloor--;
-                    }
-                }
+            //             sleep(10);
+            //             $newfloor++;
+            //         }
+            //     }
+            //     elseif ($presentFloor == 2) {
+            //         $elevatorD = 1; // going up
+            //         $newfloor = 3; 
+            //         echo "present floor loop == 2";
+            //         echo "<br>";                     
+            //         update_currentFloor($path, $user, $password, $tablename, $newfloor );
+            //         echo $newFloor;
+            //         echo "<br>";
+            //         sleep(10);
+            //     }
+            //     elseif ($presentFloor == 3) {
+            //         $elevatorD = 0; // going down
+            //         $newfloor = 2;
+            //         echo "present floor loop == 3";
+            //         echo "<br>";
+            //         for ($x = 0; $x < 2; $x++) {                        
+            //             update_currentFloor($path, $user, $password, $tablename, $newfloor );
+            //             echo $newFloor;
+            //             echo "<br>";
+            //             sleep(10);
+            //             $newfloor--;
+            //         }
+            //     }
 
-                echo "END OF WHILE";
-                if(isset($_POST['stop'])) {
-                    break;
-                }
+            //     echo "END OF WHILE";
+            //     if(isset($_POST['stop'])) {
+            //         break;
+            //     }
                 
-             }         
+            //  }         
 
 
 
-        }
+        // }
 
 
 
