@@ -55,12 +55,15 @@
         echo "Connected";
     
         if(isset($_POST['three'])) {
+            sleep(5);
             update_elevatorNetwork(3);
         }
         else if(isset($_POST['two'])) {
+            sleep(5);
             update_elevatorNetwork(2);
         }
         else if(isset($_POST['one'])) {
+            sleep(5);
             update_elevatorNetwork(1);
         }
 
