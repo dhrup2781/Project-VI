@@ -55,9 +55,9 @@
         // get the q parameter from URL
         $q = $_REQUEST["q"];        // In this case $q == "" empty string
 
-        $currfloor = strval(rand(1,20));   // This is what gets sent back to the 'q=' AJAX request
-        // $currfloor = strval(read_currentFloor($path, $user, $password, $tablename));
-
+        // $currfloor = strval(rand(1,20));   // This is what gets sent back to the 'q=' AJAX request
+        $currfloorRead = read_currentFloor($path, $user, $password, $tablename);
+        $currfloor = strval($currfloorRead);
         // $currfloor = 1;
 
         // string sent to function that handles the 'onreadystatechange' event
