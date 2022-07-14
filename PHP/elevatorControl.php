@@ -136,8 +136,8 @@
 						<button type="submit" class="btn btn-primary btn-lg"  name="one" onclick="playMusic1()">1</button><br/><br/>
 					</div>
 					<div id="doorButtons">
-						<button type="button" class="btn btn-secondary btn-lg" name="openDoor" onclick="playMusicDO()">OPEN DOOR</button>
-						<button type="button" class="btn btn-secondary btn-lg" name="closeDoor" onclick="playMusicDC()">CLOSE DOOR</button><br/><br/>
+						<button type="submit" class="btn btn-secondary btn-lg" name="openDoor" onclick="playMusicDO()">OPEN DOOR</button>
+						<button type="submit" class="btn btn-secondary btn-lg" name="closeDoor" onclick="playMusicDC()">CLOSE DOOR</button><br/><br/>
 					</div>
 					<div id="extraButtons">
 						<button type="button" class="btn btn-secondary btn-lg" id="help">Help</button>
