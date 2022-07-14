@@ -53,7 +53,7 @@
 
 
         // get the q parameter from URL
-        $q = $_REQUEST["q"];        // In this case $q == "" empty string
+        // $q = $_REQUEST["q"];        // In this case $q == "" empty string
 
         $currfloor = strval(rand(1,20));   // This is what gets sent back to the 'q=' AJAX request
         // $currfloor = read_currentFloor($path, $user, $password, $tablename);
@@ -94,7 +94,7 @@
   <form action="">
     <button id="myButton">Get current floor now!</button>  
   </form>
-  <!-- <p> Current Floor: <span id='floor'></span> </p> -->
+  <p> Current Floor: <span id='floor'></span> </p>
 
   <!-- Add JavaScript before closing body tag -->
   <script src='../JS/getFloor.js'></script>
