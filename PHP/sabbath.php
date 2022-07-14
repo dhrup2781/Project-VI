@@ -35,6 +35,8 @@
         $statement->bindValue('curFloor', $new_currentFloor);
         $statement->execute();                      // Execute prepared statement
 }
+
+        header("Refresh:5");
     // if(isset($_SESSION['username'])) {
         // Initialize variables
         $host = '127.0.0.1'; 
@@ -56,27 +58,27 @@
         $q = $_REQUEST["q"];        // In this case $q == "" empty string
 
         // $currfloor = strval(rand(1,20));   // This is what gets sent back to the 'q=' AJAX request
-        $currfloorRead = read_currentFloor($path, $user, $password, $tablename);
-        $currfloor = strval($currfloorRead);
+        $currfloor = read_currentFloor($path, $user, $password, $tablename);
+        // $currfloor = strval($currfloorRead);
         // $currfloor = 1;
 
         // string sent to function that handles the 'onreadystatechange' event
-        echo "Current Floor: " . json_encode($currfloor);
+        // echo "Current Floor: " . json_encode($currfloor);
     // while(1) {
-        if ($currfloor == "1") {
+        if ($currfloor == 1) {
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 2;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
             sleep(9);
             
         }
-        if ($currfloor == "2") {
+        if ($currfloor == 2) {
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 3;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
             sleep(9);
         }
-        if ($currfloor == "3") {
+        if ($currfloor == 3) {
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 1;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
