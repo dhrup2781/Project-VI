@@ -70,13 +70,13 @@
             sleep(12);
             
         }
-        else if ($currfloor == 2) {
+        if ($currfloor == 2) {
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 3;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
             sleep(12);
         }
-        else if ($currfloor == 3) {
+        if ($currfloor == 3) {
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 1;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
