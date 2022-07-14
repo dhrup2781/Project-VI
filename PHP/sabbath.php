@@ -63,20 +63,20 @@
         // string sent to function that handles the 'onreadystatechange' event
         echo "Current Floor: " . json_encode($currfloor);
     // while(1) {
-        if ($currfloor == 1) {
+        if ($currfloor == "1") {
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 2;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
             sleep(9);
             
         }
-        if ($currfloor == 2) {
+        if ($currfloor == "2") {
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 3;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
             sleep(9);
         }
-        if ($currfloor == 3) {
+        if ($currfloor == "3") {
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 1;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
