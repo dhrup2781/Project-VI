@@ -55,33 +55,33 @@
         // get the q parameter from URL
         $q = $_REQUEST["q"];        // In this case $q == "" empty string
 
-        $currfloor = strval(rand(1,20));   // This is what gets sent back to the 'q=' AJAX request
-        // $currfloor = read_currentFloor($path, $user, $password, $tablename);
+        // $currfloor = strval(rand(1,20));   // This is what gets sent back to the 'q=' AJAX request
+        $currfloor = read_currentFloor($path, $user, $password, $tablename);
 
         // $currfloor = 1;
 
         // string sent to function that handles the 'onreadystatechange' event
         echo "Current Floor: " . json_encode($currfloor);
     // while(1) {
-        // if ($currfloor == 1) {
-        //     // echo "Current Floor: " . json_encode($currfloor);
-        //     $newfloor = 2;
-        //     update_currentFloor($path, $user, $password, $tablename, $newfloor );
-        //     sleep(7);
+        if ($currfloor == 1) {
+            // echo "Current Floor: " . json_encode($currfloor);
+            $newfloor = 2;
+            update_currentFloor($path, $user, $password, $tablename, $newfloor );
+            sleep(12);
             
-        // }
-        // else if ($currfloor == 2) {
-        //     // echo "Current Floor: " . json_encode($currfloor);
-        //     $newfloor = 3;
-        //     update_currentFloor($path, $user, $password, $tablename, $newfloor );
-        //     sleep(7);
-        // }
-        // else if ($currfloor == 3) {
-        //     // echo "Current Floor: " . json_encode($currfloor);
-        //     $newfloor = 1;
-        //     update_currentFloor($path, $user, $password, $tablename, $newfloor );
-        //     sleep(7);
-        // }
+        }
+        else if ($currfloor == 2) {
+            // echo "Current Floor: " . json_encode($currfloor);
+            $newfloor = 3;
+            update_currentFloor($path, $user, $password, $tablename, $newfloor );
+            sleep(12);
+        }
+        else if ($currfloor == 3) {
+            // echo "Current Floor: " . json_encode($currfloor);
+            $newfloor = 1;
+            update_currentFloor($path, $user, $password, $tablename, $newfloor );
+            sleep(12);
+        }
     // }
 
 ?>
