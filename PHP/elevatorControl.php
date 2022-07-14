@@ -56,14 +56,14 @@
     
         if(isset($_POST['three'])) {
             update_elevatorNetwork(3);
-            sleep(5);
+            // sleep(5);
         }
         else if(isset($_POST['two'])) {
             update_elevatorNetwork(2);
-            sleep(5);
+            // sleep(5);
         }
         else if(isset($_POST['one'])) {
-            sleep(5);
+            // sleep(5);
             update_elevatorNetwork(1);
         }
 
