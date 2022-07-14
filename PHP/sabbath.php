@@ -48,87 +48,53 @@
 
         // Connect to database and make changes
         $db = connect($path, $user, $password);
-
-        // if(isset($_POST['sabbath'])) {
-             
-            // while (1) {
-            //     // Display content of database
-            //     showtable($path, $user, $password, $tablename);
-                
-            //     $newfloor = 0;
-            //     $elevatorD = 0; // going down
-            //     $presentFloor = read_currentFloor($path, $user, $password, $tablename);
-            //     echo "present floor is: ";
-            //     echo $presentFloor;
-            //     echo "<br>";
-
-            //     // break;
-            //     if ($presentFloor == 1) {
-            //         $elevatorD = 1; // going up
-            //         $newfloor = 2;
-            //         echo "present floor loop == 1";
-            //         echo "<br>";
-            //         for ($x = 0; $x < 2; $x++) {                        
-            //             update_currentFloor($path, $user, $password, $tablename, $newfloor );
-            //             echo $newfloor;
-            //             echo "<br>";
-                    
-            //             sleep(10);
-            //             $newfloor++;
-            //         }
-            //     }
-            //     elseif ($presentFloor == 2) {
-            //         $elevatorD = 1; // going up
-            //         $newfloor = 3; 
-            //         echo "present floor loop == 2";
-            //         echo "<br>";                     
-            //         update_currentFloor($path, $user, $password, $tablename, $newfloor );
-            //         echo $newFloor;
-            //         echo "<br>";
-            //         sleep(10);
-            //     }
-            //     elseif ($presentFloor == 3) {
-            //         $elevatorD = 0; // going down
-            //         $newfloor = 2;
-            //         echo "present floor loop == 3";
-            //         echo "<br>";
-            //         for ($x = 0; $x < 2; $x++) {                        
-            //             update_currentFloor($path, $user, $password, $tablename, $newfloor );
-            //             echo $newFloor;
-            //             echo "<br>";
-            //             sleep(10);
-            //             $newfloor--;
-            //         }
-            //     }
-
-            //     echo "END OF WHILE";
-            //     if(isset($_POST['stop'])) {
-            //         break;
-            //     }
-                
-            //  }         
+        
+        showtable($path, $user, $password, $tablename);
 
 
+        // get the q parameter from URL
+        // $q = $_REQUEST["q"];        // In this case $q == "" empty string
 
-        // }
+        // $currfloor = strval(rand(1,20));   // This is what gets sent back to the 'q=' AJAX request
+        $currfloor = read_currentFloor($path, $user, $password, $tablename);
 
+        // string sent to function that handles the 'onreadystatechange' event
+        echo "Current Floor: " . json_encode($currfloor);
 
-
-    // }
+        if ($currfloor == 1) {
+            $newfloor = 2;
+            update_currentFloor($path, $user, $password, $tablename, $newfloor );
+            sleep(5);
+        }
+        else if ($currfloor == 2) {
+            $newfloor = 3;
+            update_currentFloor($path, $user, $password, $tablename, $newfloor );
+            sleep(5);
+        }
+        else if ($currfloor == 3) {
+            $newfloor = 1;
+            update_currentFloor($path, $user, $password, $tablename, $newfloor );
+            sleep(5);
+        }
+    
 
 ?>
 
-
+<!DOCTYPE html>
 <html>
-
-<head>
-    <title>Page Title</title>
-    <meta http-equiv="refresh" content="10">
+<head> 
 </head>
 
 <body>
-    <h2>Welcome To GFG</h2>
-    <p>The code will reload after 10s.</p>
-</body>
+  <p> Current floor number - updates every 5 seconds or after pressing button </p>
+  <form action="">
+    <button id="myButton">Get current floor now!</button>  
+  </form>
+  <!-- <p> Current Floor: <span id='floor'></span> </p> -->
 
+  <!-- Add JavaScript before closing body tag -->
+  <script src='../JS/getFloor.js'></script>
+  <!-- Initialize a global variable for the floor number-->
+  <script type='text/javascript'>var floor;</script>
+</body>
 </html>
