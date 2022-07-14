@@ -1,16 +1,16 @@
 var delay = 5000;
 
-setTimeout(function playMusicDO(){
-    var music = new Audio('../audio/dooropen.mp3');
-    music.play();
-    music.currentTime=0;
-    },delay);
+// setTimeout(function playMusicDO(){
+//     var music = new Audio('../audio/dooropen.mp3');
+//     music.play();
+//     music.currentTime=0;
+//     },delay);
 
-setTimeout(function playMusicDC(){
-    var music = new Audio('../audio/doorclose.mp3');
-    music.play()
-    music.currentTime=0;
-    }, delay);
+// setTimeout(function playMusicDC(){
+//     var music = new Audio('../audio/doorclose.mp3');
+//     music.play()
+//     music.currentTime=0;
+//     }, delay);
 
 setTimeout(function playMusic3(){
     var music = new Audio('../audio/floor3.mp3');
