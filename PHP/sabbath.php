@@ -56,7 +56,7 @@
         $q = $_REQUEST["q"];        // In this case $q == "" empty string
 
         // $currfloor = strval(rand(1,20));   // This is what gets sent back to the 'q=' AJAX request
-        $currfloor = read_currentFloor($path, $user, $password, $tablename);
+        $currfloor = strval(read_currentFloor($path, $user, $password, $tablename));
 
         // $currfloor = 1;
 
@@ -67,20 +67,20 @@
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 2;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
-            sleep(12);
+            sleep(9);
             
         }
         if ($currfloor == 2) {
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 3;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
-            sleep(12);
+            sleep(9);
         }
         if ($currfloor == 3) {
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 1;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
-            sleep(12);
+            sleep(9);
         }
     // }
 
