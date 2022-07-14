@@ -52,22 +52,18 @@
 
         $db = connect($path, $user, $pass);
     
-        echo "Connected";
+        //echo "Connected";
     
         if(isset($_POST['three'])) {
             update_elevatorNetwork(3);
-            sleep(5);
-            echo '<script type="../HTML/elevatorAudio.js"> 
-                     playMusic3();
-                  </script>';
-            
+           //sleep(5);
         }
         else if(isset($_POST['two'])) {
             update_elevatorNetwork(2);
-            sleep(5);
+            //sleep(5);
         }
         else if(isset($_POST['one'])) {
-            sleep(5);
+            //sleep(5);
             update_elevatorNetwork(1);
         }
 
@@ -135,7 +131,7 @@
 						<h3>Current Floor:</h1>
 					</div>
 					<div id="floorButtons">
-						<br/><button type="submit" class="btn btn-primary btn-lg" name="three">3</button><br/><br/>
+						<br/><button type="submit" class="btn btn-primary btn-lg" name="three" onclick="playMusic3()">3</button><br/><br/>
 						<button type="submit" class="btn btn-primary btn-lg"  name="two" onclick="playMusic2()">2</button><br/><br/>
 						<button type="submit" class="btn btn-primary btn-lg"  name="one" onclick="playMusic1()">1</button><br/><br/>
 					</div>
