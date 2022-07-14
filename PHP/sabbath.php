@@ -36,7 +36,7 @@
         $statement->execute();                      // Execute prepared statement
 }
 
-        header("Refresh:5");
+        header("Refresh:10");
     // if(isset($_SESSION['username'])) {
         // Initialize variables
         $host = '127.0.0.1'; 
@@ -69,20 +69,20 @@
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 2;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
-            sleep(9);
+            // sleep(9);
             
         }
-        if ($currfloor == 2) {
+        else if ($currfloor == 2) {
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 3;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
-            sleep(9);
+            // sleep(9);
         }
-        if ($currfloor == 3) {
+        else if ($currfloor == 3) {
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 1;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
-            sleep(9);
+            // sleep(9);
         }
     // }
 
