@@ -59,7 +59,7 @@
         $currfloor = read_currentFloor($path, $user, $password, $tablename);
 
         // string sent to function that handles the 'onreadystatechange' event
-        
+        echo "Current Floor: " . json_encode($currfloor);
     // while(1) {
     //     if ($currfloor == 1) {
     //         echo "Current Floor: " . json_encode($currfloor);
