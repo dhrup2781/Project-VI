@@ -56,23 +56,27 @@
     
         if(isset($_POST['three'])) {
             update_elevatorNetwork(3);
+			sleep(7);
+			echo '<audio autoplay="true" style="display:none;">
+         <source src="../audio/floor3.mp3" type="audio/wav">
+      </audio>';
 
             // sleep(5);
         }
         else if(isset($_POST['two'])) {
             update_elevatorNetwork(2);
-            // sleep(5);
+            sleep(7);
+			echo '<audio autoplay="true" style="display:none;">
+			<source src="../audio/floor2.mp3" type="audio/wav">
+		 	</audio>';
         }
         else if(isset($_POST['one'])) {
-            // sleep(5);
-        }
-        else if(isset($_POST['two'])) {
-            update_elevatorNetwork(2);
-            //sleep(5);
-        }
-        else if(isset($_POST['one'])) {
-            //sleep(5);
+            
             update_elevatorNetwork(1);
+			sleep(7);
+			echo '<audio autoplay="true" style="display:none;">
+			<source src="../audio/floor2.mp3" type="audio/wav">
+		 	</audio>';
         }
 
         show_network_table( $path,  $user,  $pass, "elevatorNetwork");
@@ -144,8 +148,9 @@
 						<button type="submit" class="btn btn-primary btn-lg"  name="one" onclick="playMusic1()">1</button><br/><br/>
 					</div>
 					<div id="doorButtons">
-						<button type="submit" class="btn btn-secondary btn-lg" name="openDoor" onclick="playMusicDO()">OPEN DOOR</button>
-						<button type="submit" class="btn btn-secondary btn-lg" name="closeDoor" onclick="playMusicDC()">CLOSE DOOR</button><br/><br/>
+						<button type="button" class="btn btn-secondary btn-lg" name="openDoor" onclick="playMusicDO()">OPEN DOOR</button>
+						<button type="button" class="btn btn-secondary btn-lg" name="closeDoor" onclick="playMusicDC()">CLOSE DOOR</button><br/><br/>
+						<!-- <audio id="audio" src="../audio/doorclose.mp3"></audio> -->
 					</div>
 					<div id="extraButtons">
 						<button type="button" class="btn btn-secondary btn-lg" id="help">Help</button>
