@@ -56,27 +56,44 @@
     
         if(isset($_POST['three'])) {
             update_elevatorNetwork(3);
-			sleep(7);
-			echo '<audio autoplay="true" style="display:none;">
-         <source src="../audio/floor3.mp3" type="audio/wav">
-      </audio>';
+			// sleep(7);
+	// 		echo '<audio autoplay="true" style="display:none;">
+    //      <source src="../audio/floor3.mp3" type="audio/wav">
+    //   </audio>';
 
-            // sleep(5);
+			echo '<audio src="../audio/floor3.mp3" id="my_audio"></audio>
+			 <script type="text/javascript">
+			   setTimeout(function(){
+				 document.getElementById("my_audio").play();
+			   }, 8000)
+			 </script>';
         }
         else if(isset($_POST['two'])) {
             update_elevatorNetwork(2);
-            sleep(7);
-			echo '<audio autoplay="true" style="display:none;">
-			<source src="../audio/floor2.mp3" type="audio/wav">
-		 	</audio>';
-        }
+            // sleep(7);
+			// echo '<audio autoplay="true" style="display:none;">
+			// <source src="../audio/floor2.mp3" type="audio/wav">
+		 	// </audio>';
+			 echo '<audio src="../audio/floor2.mp3" id="my_audio"></audio>
+			 <script type="text/javascript">
+			   setTimeout(function(){
+				 document.getElementById("my_audio").play();
+			   }, 8000)
+			 </script>';
+			}
         else if(isset($_POST['one'])) {
             
             update_elevatorNetwork(1);
-			sleep(7);
-			echo '<audio autoplay="true" style="display:none;">
-			<source src="../audio/floor2.mp3" type="audio/wav">
-		 	</audio>';
+			// sleep(7);
+			// echo '<audio autoplay="true" style="display:none;">
+			// <source src="../audio/floor2.mp3" type="audio/wav">
+		 	// </audio>';
+			 echo '<audio src="../audio/floor1.mp3" id="my_audio"></audio>
+			 <script type="text/javascript">
+			   setTimeout(function(){
+				 document.getElementById("my_audio").play();
+			   }, 8000)
+			 </script>';
         }
 
         show_network_table( $path,  $user,  $pass, "elevatorNetwork");
