@@ -56,7 +56,7 @@
     
         if(isset($_POST['three'])) {
             update_elevatorNetwork(3);
-<<<<<<< HEAD
+
             // sleep(5);
         }
         else if(isset($_POST['two'])) {
@@ -65,12 +65,6 @@
         }
         else if(isset($_POST['one'])) {
             // sleep(5);
-=======
-<<<<<<< HEAD
-           //sleep(5);
-=======
-            sleep(5);
->>>>>>> 61122e95b123861887bc0d6aff58a56b4ba49acf
         }
         else if(isset($_POST['two'])) {
             update_elevatorNetwork(2);
@@ -78,7 +72,6 @@
         }
         else if(isset($_POST['one'])) {
             //sleep(5);
->>>>>>> 0793fa2f9673af89587a4fc86225e9fdd34be94f
             update_elevatorNetwork(1);
         }
 
