@@ -55,44 +55,60 @@
         //echo "Connected";
     
         if(isset($_POST['three'])) {
+			echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
+			<script type="text/javascript">
+				document.getElementById("audio_close").play();
+			</script>';
             update_elevatorNetwork(3);
-			// sleep(7);
-	// 		echo '<audio autoplay="true" style="display:none;">
-    //      <source src="../audio/floor3.mp3" type="audio/wav">
-    //   </audio>';
-
 			echo '<audio src="../audio/floor3.mp3" id="my_audio"></audio>
 			 <script type="text/javascript">
 			   setTimeout(function(){
 				 document.getElementById("my_audio").play();
 			   }, 8000)
 			 </script>';
+			 echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+			 <script type="text/javascript">
+			   setTimeout(function(){
+				 document.getElementById("audio_open").play();
+			   }, 9000)
+			 </script>';
         }
         else if(isset($_POST['two'])) {
+			echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
+			<script type="text/javascript">
+				document.getElementById("audio_close").play();
+			</script>';
             update_elevatorNetwork(2);
-            // sleep(7);
-			// echo '<audio autoplay="true" style="display:none;">
-			// <source src="../audio/floor2.mp3" type="audio/wav">
-		 	// </audio>';
 			 echo '<audio src="../audio/floor2.mp3" id="my_audio"></audio>
 			 <script type="text/javascript">
 			   setTimeout(function(){
 				 document.getElementById("my_audio").play();
 			   }, 8000)
 			 </script>';
-			}
-        else if(isset($_POST['one'])) {
-            
+			 echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+			 <script type="text/javascript">
+			   setTimeout(function(){
+				 document.getElementById("audio_open").play();
+			   }, 9000)
+			 </script>';
+		}
+        else if(isset($_POST['one'])) {    
+			echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
+			<script type="text/javascript">
+				document.getElementById("audio_close").play();
+			</script>';     
             update_elevatorNetwork(1);
-			// sleep(7);
-			// echo '<audio autoplay="true" style="display:none;">
-			// <source src="../audio/floor2.mp3" type="audio/wav">
-		 	// </audio>';
 			 echo '<audio src="../audio/floor1.mp3" id="my_audio"></audio>
 			 <script type="text/javascript">
 			   setTimeout(function(){
 				 document.getElementById("my_audio").play();
 			   }, 8000)
+			 </script>';
+			 echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+			 <script type="text/javascript">
+			   setTimeout(function(){
+				 document.getElementById("audio_open").play();
+			   }, 9000)
 			 </script>';
         }
 
