@@ -168,7 +168,7 @@
 		<br/>
 		<br/>
 		<div id="page_wrap">
-			<form action="../PHP/sabbath.php" method="post">
+			<form action="sabbath.php" method="post">
 				<div id="heading">
 					<h1>Sabbath mode</h1><br/><br/>
 				</div>
