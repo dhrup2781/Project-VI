@@ -45,7 +45,7 @@
         $statement->execute();                      // Execute prepared statement
 }
 
-        header("Refresh:10");
+        //header("Refresh:10");
     // if(isset($_SESSION['username'])) {
         // Initialize variables
         $host = '127.0.0.1'; 
@@ -67,6 +67,7 @@
         //$q = $_REQUEST["q"];        // In this case $q == "" empty string
 
         if(isset($_POST['sabbath'])) {
+            $flag = 1;
             // $currfloor = strval(rand(1,20));   // This is what gets sent back to the 'q=' AJAX request
             $currfloor = read_currentFloor($path, $user, $pass, $tablename);
             // $currfloor = strval($currfloorRead);
@@ -74,38 +75,40 @@
 
             // string sent to function that handles the 'onreadystatechange' event
             // echo "Current Floor: " . json_encode($currfloor);
-            // while(1) {
-            if ($currfloor == 1) {
-                // echo "Current Floor: " . json_encode($currfloor);
-                $newfloor = 2;
-                update_currentFloor($path, $user, $pass, $tablename, $newfloor );
-                // sleep(9);
-                
-            }
-            else if ($currfloor == 2) {
-                // echo "Current Floor: " . json_encode($currfloor);
-                $newfloor = 3;
-                update_currentFloor($path, $user, $pass, $tablename, $newfloor );
-                // sleep(9);
-            }
-            else if ($currfloor == 3) {
-                // echo "Current Floor: " . json_encode($currfloor);
-                $newfloor = 1;
-                update_currentFloor($path, $user, $pass, $tablename, $newfloor );
-                // sleep(9);
-            } 
-            else if ($currfloor == 0) {
-                // echo "Current Floor: " . json_encode($currfloor);
-                $newfloor = 1;
-                update_currentFloor($path, $user, $pass, $tablename, $newfloor );
-                // sleep(9);
-            }
-        } else if(isset($_POST['stop'])) { 
+            while($flag == 1) {
+                if ($currfloor == 1) {
+                    // echo "Current Floor: " . json_encode($currfloor);
+                    $newfloor = 2;
+                    update_currentFloor($path, $user, $pass, $tablename, $newfloor );
+                    // sleep(9);
+                    
+                }
+                else if ($currfloor == 2) {
+                    // echo "Current Floor: " . json_encode($currfloor);
+                    $newfloor = 3;
+                    update_currentFloor($path, $user, $pass, $tablename, $newfloor );
+                    // sleep(9);
+                }
+                else if ($currfloor == 3) {
+                    // echo "Current Floor: " . json_encode($currfloor);
+                    $newfloor = 1;
+                    update_currentFloor($path, $user, $pass, $tablename, $newfloor );
+                    // sleep(9);
+                } 
+                else if ($currfloor == 0) {
+                    // echo "Current Floor: " . json_encode($currfloor);
+                    $newfloor = 1;
+                    update_currentFloor($path, $user, $pass, $tablename, $newfloor );
+                    // sleep(9);
+                } 
+                else if(isset($_POST['stop'])) { 
 
-            update_currentFloor($path, $user, $pass, $tablename, "0" ); 
+                    $flag = 0;
 
-        }
-
+                    //update_currentFloor($path, $user, $pass, $tablename, "0" ); 
+                }
+            }
+        } 
         show_currentFloor( $path,  $user,  $pass, "elevatorNetwork");
     // }
 
