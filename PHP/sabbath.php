@@ -69,13 +69,14 @@
         if(isset($_POST['sabbath'])) {
             $flag = 1;
             // $currfloor = strval(rand(1,20));   // This is what gets sent back to the 'q=' AJAX request
-            $currfloor = read_currentFloor($path, $user, $pass, $tablename);
+            //$currfloor = read_currentFloor($path, $user, $pass, $tablename);
             // $currfloor = strval($currfloorRead);
             // $currfloor = 1;
 
             // string sent to function that handles the 'onreadystatechange' event
             // echo "Current Floor: " . json_encode($currfloor);
             while($flag == 1) {
+                $currfloor = read_currentFloor($path, $user, $pass, $tablename);
                 if ($currfloor == 1) {
                     // echo "Current Floor: " . json_encode($currfloor);
                     $newfloor = 2;
