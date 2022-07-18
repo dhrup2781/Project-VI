@@ -43,7 +43,66 @@
 		$statement = $db1->prepare($query);
 		$statement->bindvalue('floor', $new_floor);
 		$statement->execute();
+    }
 
+	function update_counter1(int $c1) {
+		$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');
+		$query = 'UPDATE elevatorNetwork 
+				SET C1 = :counter
+				WHERE nodeID = 1';
+		$statement = $db1->prepare($query);
+		$statement->bindvalue('counter', $c1);
+		$statement->execute();
+
+	}
+
+	function update_counter2(int $c2) {
+		$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');
+		$query = 'UPDATE elevatorNetwork 
+				SET C2 = :counter
+				WHERE nodeID = 1';
+		$statement = $db1->prepare($query);
+		$statement->bindvalue('counter', $c2);
+		$statement->execute();
+
+	}
+	function update_counter3(int $c3) {
+		$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');
+		$query = 'UPDATE elevatorNetwork 
+				SET C3 = :counter
+				WHERE nodeID = 1';
+		$statement = $db1->prepare($query);
+		$statement->bindvalue('counter', $c3);
+		$statement->execute();
+
+	}
+
+	function read_c1(string $path, string $user, string $pass, $tablename) {
+        $db = connect($path, $user, $pass); 
+        $query = "SELECT * FROM $tablename";  // Note: Risk of SQL injection
+        $rows = $db->query($query); 
+        foreach ($rows as $row) {
+            $counter = $row['C1'];
+        }
+		return ($counter);
+    }
+	function read_c2(string $path, string $user, string $pass, $tablename) {
+        $db = connect($path, $user, $pass); 
+        $query = "SELECT * FROM $tablename";  // Note: Risk of SQL injection
+        $rows = $db->query($query); 
+        foreach ($rows as $row) {
+            $counter = $row['C2'];
+        }
+		return ($counter);
+    }
+	function read_c3(string $path, string $user, string $pass, $tablename) {
+        $db = connect($path, $user, $pass); 
+        $query = "SELECT * FROM $tablename";  // Note: Risk of SQL injection
+        $rows = $db->query($query); 
+        foreach ($rows as $row) {
+            $counter = $row['C3'];
+        }
+		return ($counter);
     }
     
     //session_start(); 
@@ -68,6 +127,8 @@
 				document.getElementById("audio_close").play();
 			</script>';
             update_elevatorNetwork(3);
+			$counter = read_c3($path, $user, $pass, "elevatorNetwork") + 1;
+			update_counter3($counter);
 			echo '<audio src="../audio/floor3.mp3" id="my_audio"></audio>
 			 <script type="text/javascript">
 			   setTimeout(function(){
@@ -87,6 +148,8 @@
 				document.getElementById("audio_close").play();
 			</script>';
             update_elevatorNetwork(2);
+			$counter = read_c2($path, $user, $pass, "elevatorNetwork") + 1;
+			update_counter2($counter);
 			 echo '<audio src="../audio/floor2.mp3" id="my_audio"></audio>
 			 <script type="text/javascript">
 			   setTimeout(function(){
@@ -106,6 +169,8 @@
 				document.getElementById("audio_close").play();
 			</script>';     
             update_elevatorNetwork(1);
+			$counter = read_c1($path, $user, $pass, "elevatorNetwork") + 1;
+			update_counter1($counter);
 			 echo '<audio src="../audio/floor1.mp3" id="my_audio"></audio>
 			 <script type="text/javascript">
 			   setTimeout(function(){
