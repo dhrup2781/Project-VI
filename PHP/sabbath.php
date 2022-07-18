@@ -143,13 +143,13 @@
 
 <body>
   <p> Current floor number - updates every 5 seconds or after pressing button </p>
-  <form action="">
+  <!-- <form action="">
     <button id="myButton">Get current floor now!</button>  
   </form>
-  <p> Current Floor: <span id='floor'></span> </p>
+  <p> Current Floor: <span id='floor'></span> </p> -->
 
   <!-- Add JavaScript before closing body tag -->
-  <script src='../JS/getFloor.js'></script>
+  <!-- <script src='../JS/getFloor.js'></script> -->
   <!-- Initialize a global variable for the floor number-->
   <script type='text/javascript'>var floor;</script>
 </body>
