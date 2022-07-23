@@ -8,10 +8,10 @@
 
 
 
-    function showtable(string $path, string $user, string $pass, $tablename) {
+    function showtable(string $path, string $user, string $pass, $queue_tablename) {
         echo "<h3>Elevator Queue</h3>";
         $db = connect($path, $user, $pass); 
-        $query = "SELECT * FROM $tablename";  // Note: Risk of SQL injection
+        $query = "SELECT * FROM $queue_tablename";  // Note: Risk of SQL injection
         $rows = $db->query($query); 
         echo "id|newFloor<br>";
         foreach ($rows as $row) {
@@ -68,8 +68,9 @@
 
         // Initialize variables
         $host = '127.0.0.1'; 
-        $database = 'elevator'; 
-        $tablename = 'elevatorQueue'; 
+        $database = 'elevator';
+        $tablename = 'elevatorNetwork'; 
+        $queue_tablename = 'elevatorQueue'; 
         $path = 'mysql:host=' . $host . ';dbname=' . $database; 
         $user = 'ese';  // Could be a variable from $_SESSION['username'] if the database has been set up with permissions for another user
         $pass = 'ese';
@@ -83,14 +84,16 @@
             insert($path, $user, $pass, "3");
         }
         else if(isset($_POST['two'])) {
+            echo "Floor 2 is pressed";
             insert($path, $user, $pass, "2");
         }
         else if(isset($_POST['one'])) {
+            echo "Floor 1 is pressed";
             insert($path, $user, $pass, "1");
         }
 
-        $elevatorQueue = get_table_data($path, $user, $pass, 'elevatorQueue');
-        $elevatorNetwork = get_table_data($path, $user, $pass, 'elevatorNetwork');
+        $elevatorQueue = get_table_data($path, $user, $pass, $queue_tablename);
+        $elevatorNetwork = get_table_data($path, $user, $pass, $tablename);
         
         foreach ($elevatorNetwork as $network){
             $elevatorDirection = $network['status'];
@@ -99,49 +102,14 @@
             break;    
         }
         
-        $currentFloor = $requestedFloor;
-        
-        $requestedQueuedFloors = array();
-        foreach ($elevatorQueue as $queueItem) {
-            array_push($requestedQueuedFloors,$queueItem['newFloor']);
-        }
-
-        if($elevatorDirection==1){ # going up (next best floor number greater than current floor)
-            $nextFloors = array_filter(
-                $requestedQueuedFloors,
-                function ($value) use($currentFloor) {
-                    return ($value > $currentFloor);
-                }
-            );
-            sort($nextFloors);
-            if(count($nextFloors) > 0) {
-                $requestedFloor = $nextFloors[0]; 
-            }else{
-                $elevatorDirection=0;
-                $nextFloors = array_filter(
-                    $requestedQueuedFloors,
-                    function ($value) use($currentFloor) {
-                        return ($value < $currentFloor);
-                    }
-                );
-                rsort($nextFloors);
-                if(count($nextFloors) > 0) {
-                    $requestedFloor = $nextFloors[0];
-                } 
+        if ($currentFloor == $requestedFloor){
+            // store in ele queue
+            $requestedQueuedFloors = array();
+            foreach ($elevatorQueue as $queueItem) {
+                array_push($requestedQueuedFloors,$queueItem['newFloor']);
             }
-
-        }else{ # going down
-            $nextFloors = array_filter(
-                $requestedQueuedFloors,
-                function ($value) use($currentFloor) {
-                    return ($value < $currentFloor);
-                }
-            );
-            rsort($nextFloors);
-            if(count($nextFloors) > 0) {
-                $requestedFloor = $nextFloors[0];
-            } else {
-                $elevatorDirection=1;
+    
+            if($elevatorDirection==1){ # going up (next best floor number greater than current floor)
                 $nextFloors = array_filter(
                     $requestedQueuedFloors,
                     function ($value) use($currentFloor) {
@@ -151,38 +119,79 @@
                 sort($nextFloors);
                 if(count($nextFloors) > 0) {
                     $requestedFloor = $nextFloors[0]; 
+                }else{
+                    $elevatorDirection=0;
+                    $nextFloors = array_filter(
+                        $requestedQueuedFloors,
+                        function ($value) use($currentFloor) {
+                            return ($value < $currentFloor);
+                        }
+                    );
+                    rsort($nextFloors);
+                    if(count($nextFloors) > 0) {
+                        $requestedFloor = $nextFloors[0];
+                    } 
+                }
+    
+            }else{ # going down
+                $nextFloors = array_filter(
+                    $requestedQueuedFloors,
+                    function ($value) use($currentFloor) {
+                        return ($value < $currentFloor);
+                    }
+                );
+                rsort($nextFloors);
+                if(count($nextFloors) > 0) {
+                    $requestedFloor = $nextFloors[0];
+                } else {
+                    $elevatorDirection=1;
+                    $nextFloors = array_filter(
+                        $requestedQueuedFloors,
+                        function ($value) use($currentFloor) {
+                            return ($value > $currentFloor);
+                        }
+                    );
+                    sort($nextFloors);
+                    if(count($nextFloors) > 0) {
+                        $requestedFloor = $nextFloors[0]; 
+                    }
                 }
             }
-        }
+    
+            sleep(5);
+            
+            update_elevatorNetwork($path, $user, $pass, $elevatorDirection, $currentFloor, $requestedFloor);
 
+            $elevatorQueue = get_table_data($path, $user, $pass, $queue_tablename);
+
+            foreach ( $elevatorQueue as $queueItem) {
+             if($queueItem['newFloor']==$requestedFloor) {
+                 echo 'deleting';
+                 remove_elevatorQueue_by_id($path, $user, $pass, $queueItem['id']);
+                 break;
+             }
+            }
+        }
         
-        update_elevatorNetwork($path, $user, $pass, $elevatorDirection, $currentFloor, $requestedFloor);
+       
 
         // Connect to database and make changes
 
     
        // if(isset($_POST['id'])) { $id = $_POST['id']; }
        // if(isset($_POST['newFloor'])) { $newFloor = $_POST['newFloor']; }
-       $elevatorQueue = get_table_data($path, $user, $pass, 'elevatorQueue');
 
-       foreach ( $elevatorQueue as $queueItem) {
-        if($queueItem['newFloor']==$requestedFloor) {
-            echo 'deleting';
-            remove_elevatorQueue_by_id($path, $user, $pass, $queueItem['id']);
-            break;
-        }
-       }
        
        
 
-       foreach ($rows as $row) {
-        echo $row['id'] . " | " . $row['newFloor'] . "<br>";
-        }
+    //    foreach ($rows as $row) {
+    //     echo $row['id'] . " | " . $row['newFloor'] . "<br>";
+    //     }
 
 
         // Display content of database
         showtable($path, $user, $pass, $tablename);
-        show_network_table($path, $user, $pass, 'elevatorNetwork');
+        show_network_table($path, $user, $pass, $tablename);
     
     //}
 
