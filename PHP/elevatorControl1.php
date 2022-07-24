@@ -157,9 +157,7 @@
                     }
                 }
             }
-    
-            sleep(5);
-            
+
             update_elevatorNetwork($path, $user, $pass, $elevatorDirection, $currentFloor, $requestedFloor);
 
             $elevatorQueue = get_table_data($path, $user, $pass, $queue_tablename);
