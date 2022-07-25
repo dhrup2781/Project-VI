@@ -77,7 +77,7 @@
 
         $db = connect($path, $user, $pass);
     
-        echo "Connected";
+        //echo "Connected";
     
         if(isset($_POST['three'])) {
             echo "Floor 3 is pressed";
@@ -92,107 +92,167 @@
             insert($path, $user, $pass, "1");
         }
 
-        $elevatorQueue = get_table_data($path, $user, $pass, $queue_tablename);
-        $elevatorNetwork = get_table_data($path, $user, $pass, $tablename);
+    //     $elevatorQueue = get_table_data($path, $user, $pass, $queue_tablename);
+    //     $elevatorNetwork = get_table_data($path, $user, $pass, $tablename);
         
-        foreach ($elevatorNetwork as $network){
-            $elevatorDirection = $network['status'];
-            $currentFloor = $network['currentFloor'];
-            $requestedFloor = $network['requestedFloor'];
-            break;    
-        }
-        
-        if ($currentFloor == $requestedFloor){
-            // store in ele queue
-            $requestedQueuedFloors = array();
-            foreach ($elevatorQueue as $queueItem) {
-                array_push($requestedQueuedFloors,$queueItem['newFloor']);
-            }
-    
-            if($elevatorDirection==1){ # going up (next best floor number greater than current floor)
-                $nextFloors = array_filter(
-                    $requestedQueuedFloors,
-                    function ($value) use($currentFloor) {
-                        return ($value > $currentFloor);
-                    }
-                );
-                sort($nextFloors);
-                if(count($nextFloors) > 0) {
-                    $requestedFloor = $nextFloors[0]; 
-                }else{
-                    $elevatorDirection=0;
-                    $nextFloors = array_filter(
-                        $requestedQueuedFloors,
-                        function ($value) use($currentFloor) {
-                            return ($value < $currentFloor);
-                        }
-                    );
-                    rsort($nextFloors);
-                    if(count($nextFloors) > 0) {
-                        $requestedFloor = $nextFloors[0];
-                    } 
-                }
-    
-            }else{ # going down
-                $nextFloors = array_filter(
-                    $requestedQueuedFloors,
-                    function ($value) use($currentFloor) {
-                        return ($value < $currentFloor);
-                    }
-                );
-                rsort($nextFloors);
-                if(count($nextFloors) > 0) {
-                    $requestedFloor = $nextFloors[0];
-                } else {
-                    $elevatorDirection=1;
-                    $nextFloors = array_filter(
-                        $requestedQueuedFloors,
-                        function ($value) use($currentFloor) {
-                            return ($value > $currentFloor);
-                        }
-                    );
-                    sort($nextFloors);
-                    if(count($nextFloors) > 0) {
-                        $requestedFloor = $nextFloors[0]; 
-                    }
-                }
-            }
-
-            update_elevatorNetwork($path, $user, $pass, $elevatorDirection, $currentFloor, $requestedFloor);
-
-            $elevatorQueue = get_table_data($path, $user, $pass, $queue_tablename);
-
-            foreach ( $elevatorQueue as $queueItem) {
-             if($queueItem['newFloor']==$requestedFloor) {
-                 echo 'deleting';
-                 remove_elevatorQueue_by_id($path, $user, $pass, $queueItem['id']);
-                 break;
-             }
-            }
-        }
-        
-       
-
-        // Connect to database and make changes
-
-    
-       // if(isset($_POST['id'])) { $id = $_POST['id']; }
-       // if(isset($_POST['newFloor'])) { $newFloor = $_POST['newFloor']; }
-
-       
-       
-
-    //    foreach ($rows as $row) {
-    //     echo $row['id'] . " | " . $row['newFloor'] . "<br>";
+    //     foreach ($elevatorNetwork as $network){
+    //         $elevatorDirection = $network['status'];
+    //         $currentFloor = $network['currentFloor'];
+    //         $requestedFloor = $network['requestedFloor'];
+    //         break;    
     //     }
-
-
-        // Display content of database
-        showtable($path, $user, $pass, $tablename);
-        show_network_table($path, $user, $pass, $tablename);
+        
+    //     if ($currentFloor == $requestedFloor){
+    //         // store in ele queue
+    //         $requestedQueuedFloors = array();
+    //         foreach ($elevatorQueue as $queueItem) {
+    //             array_push($requestedQueuedFloors,$queueItem['newFloor']);
+    //         }
     
-    //}
+    //         if($elevatorDirection==1){ # going up (next best floor number greater than current floor)
+    //             $nextFloors = array_filter(
+    //                 $requestedQueuedFloors,
+    //                 function ($value) use($currentFloor) {
+    //                     return ($value > $currentFloor);
+    //                 }
+    //             );
+    //             sort($nextFloors);
+    //             if(count($nextFloors) > 0) {
+    //                 $requestedFloor = $nextFloors[0]; 
+    //             }else{
+    //                 $elevatorDirection=0;
+    //                 $nextFloors = array_filter(
+    //                     $requestedQueuedFloors,
+    //                     function ($value) use($currentFloor) {
+    //                         return ($value < $currentFloor);
+    //                     }
+    //                 );
+    //                 rsort($nextFloors);
+    //                 if(count($nextFloors) > 0) {
+    //                     $requestedFloor = $nextFloors[0];
+    //                 } 
+    //             }
+    
+    //         }else{ # going down
+    //             $nextFloors = array_filter(
+    //                 $requestedQueuedFloors,
+    //                 function ($value) use($currentFloor) {
+    //                     return ($value < $currentFloor);
+    //                 }
+    //             );
+    //             rsort($nextFloors);
+    //             if(count($nextFloors) > 0) {
+    //                 $requestedFloor = $nextFloors[0];
+    //             } else {
+    //                 $elevatorDirection=1;
+    //                 $nextFloors = array_filter(
+    //                     $requestedQueuedFloors,
+    //                     function ($value) use($currentFloor) {
+    //                         return ($value > $currentFloor);
+    //                     }
+    //                 );
+    //                 sort($nextFloors);
+    //                 if(count($nextFloors) > 0) {
+    //                     $requestedFloor = $nextFloors[0]; 
+    //                 }
+    //             }
+    //         }
+
+    //         update_elevatorNetwork($path, $user, $pass, $elevatorDirection, $currentFloor, $requestedFloor);
+
+    //         $elevatorQueue = get_table_data($path, $user, $pass, $queue_tablename);
+
+    //         foreach ( $elevatorQueue as $queueItem) {
+    //          if($queueItem['newFloor']==$requestedFloor) {
+    //              echo 'deleting';
+    //              remove_elevatorQueue_by_id($path, $user, $pass, $queueItem['id']);
+    //              break;
+    //          }
+    //         }
+    //     }
+        
+       
+
+    //     // Connect to database and make changes
+
+    
+    //    // if(isset($_POST['id'])) { $id = $_POST['id']; }
+    //    // if(isset($_POST['newFloor'])) { $newFloor = $_POST['newFloor']; }
+
+       
+       
+
+    // //    foreach ($rows as $row) {
+    // //     echo $row['id'] . " | " . $row['newFloor'] . "<br>";
+    // //     }
+
+
+    //     // Display content of database
+    //     showtable($path, $user, $pass, $tablename);
+    //     show_network_table($path, $user, $pass, $tablename);
+    
+    // //}
 
 
 
 ?>
+
+<html lang="en">
+	<head> 	
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Project VI</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>      			
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   			
+		<link rel="stylesheet" type="text/css" href="../CSS/elevatorControl.css" /> 		
+	</head>
+    <body>
+        <style>
+            body {
+                background-image: url(../images/background.png);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+        </style>
+        <br/>
+		<br/>
+		<br/>
+		<div id="page_wrap">
+			<form  action="elevatorControl1.php" method="POST">
+				<div id="heading">
+					<h1>Elevator Console</h1><br/><br/>
+				</div>
+				<div id="elevatorButtons">
+					<div id="floorButtons">
+						<br/><button type="submit" class="btn btn-primary btn-lg" name="three" onclick="playMusic3()">3</button><br/><br/>
+						<button type="submit" class="btn btn-primary btn-lg"  name="two" onclick="playMusic2()">2</button><br/><br/>
+						<button type="submit" class="btn btn-primary btn-lg"  name="one" onclick="playMusic1()">1</button><br/><br/>
+					</div>
+					<div id="doorButtons">
+						<button type="button" class="btn btn-secondary btn-lg" id="opendoor" name="openDoor" onclick="playMusicDO()">OPEN DOOR</button>
+						<button type="button" class="btn btn-secondary btn-lg" id="closedoor" name="closeDoor" onclick="playMusicDC()">CLOSE DOOR</button><br/><br/>
+						<!-- <audio id="audio" src="../audio/doorclose.mp3"></audio> -->
+					</div>
+					<div id="extraButtons">
+						<button type="button" class="btn btn-secondary btn-lg" id="help">Help</button>
+						<button type="button" class="btn btn-secondary btn-lg" id="emergency">Emergency</button><br/><br/> 
+					</div>
+					<div id="stopButton">
+						<button type="button" class="btn btn-danger s btn-lg" id="stop">STOP</button><br/><br/><br/>
+					</div>
+					<div>
+						<p>Click <a href='../PHP/logout.php'>here</a> to log out</p>
+					</div>
+				</div>
+			</form>
+		</div>
+        <br/>
+        <br/>
+		<script src="../HTML/elevatorAudio.js"></script>
+		<footer>
+			<p>Copyright &copy Dhrup Patel; Alex Wu; Mike Wu</p>
+		</footer>
+    </body>
+</html>    
