@@ -148,18 +148,23 @@
             insert($path, $user, $pass, "3");
             $counter = read_c3($path, $user, $pass, "elevatorNetwork") + 1;
 			update_counter3($counter);
-            echo '<audio src="../audio/floor3.mp3" id="my_audio"></audio>
-			 <script type="text/javascript">
-			   setTimeout(function(){
-				 document.getElementById("my_audio").play();
-			   }, 8000)
-               </script>';
-               echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
-               <script type="text/javascript">
-                 setTimeout(function(){
-                   document.getElementById("audio_open").play();
-                 }, 9000)
-               </script>';
+
+            
+
+
+
+            // echo '<audio src="../audio/floor3.mp3" id="my_audio"></audio>
+			//  <script type="text/javascript">
+			//    setTimeout(function(){
+			// 	 document.getElementById("my_audio").play();
+			//    }, 8000)
+            //    </script>';
+            //    echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+            //    <script type="text/javascript">
+            //      setTimeout(function(){
+            //        document.getElementById("audio_open").play();
+            //      }, 9000)
+            //    </script>';
         }
         else if(isset($_POST['two'])) {
             echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
@@ -170,18 +175,18 @@
             insert($path, $user, $pass, "2");
             $counter = read_c2($path, $user, $pass, "elevatorNetwork") + 1;
 			update_counter2($counter);
-            echo '<audio src="../audio/floor2.mp3" id="my_audio"></audio>
-            <script type="text/javascript">
-              setTimeout(function(){
-                document.getElementById("my_audio").play();
-              }, 8000)
-            </script>';
-            echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
-            <script type="text/javascript">
-              setTimeout(function(){
-                document.getElementById("audio_open").play();
-              }, 9000)
-            </script>';
+            // echo '<audio src="../audio/floor2.mp3" id="my_audio"></audio>
+            // <script type="text/javascript">
+            //   setTimeout(function(){
+            //     document.getElementById("my_audio").play();
+            //   }, 8000)
+            // </script>';
+            // echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+            // <script type="text/javascript">
+            //   setTimeout(function(){
+            //     document.getElementById("audio_open").play();
+            //   }, 9000)
+            // </script>';
         }
         else if(isset($_POST['one'])) {
             echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
@@ -192,7 +197,37 @@
             insert($path, $user, $pass, "1");
             $counter = read_c1($path, $user, $pass, "elevatorNetwork") + 1;
 			update_counter1($counter);
-			 echo '<audio src="../audio/floor1.mp3" id="my_audio"></audio>
+
+            
+			//  echo '<audio src="../audio/floor1.mp3" id="my_audio"></audio>
+			//  <script type="text/javascript">
+			//    setTimeout(function(){
+			// 	 document.getElementById("my_audio").play();
+			//    }, 8000)
+			//  </script>';
+			//  echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+			//  <script type="text/javascript">
+			//    setTimeout(function(){
+			// 	 document.getElementById("audio_open").play();
+			//    }, 9000)
+			//  </script>';
+        }
+        else if(isset($_POST['stop'])) {
+            echo "Stop is pressed";
+            insert($path, $user, $pass, "0");
+        }
+
+
+
+        $elevatorNetwork = get_table_data($path, $user, $pass, $tablename);
+        
+        foreach ($elevatorNetwork as $network){
+            $currentFloor = $network['currentFloor'];
+            break;    
+        }
+
+        if ($currentFloor == 1) {
+            echo '<audio src="../audio/floor1.mp3" id="my_audio"></audio>
 			 <script type="text/javascript">
 			   setTimeout(function(){
 				 document.getElementById("my_audio").play();
@@ -205,10 +240,35 @@
 			   }, 9000)
 			 </script>';
         }
-        else if(isset($_POST['stop'])) {
-            echo "Stop is pressed";
-            insert($path, $user, $pass, "0");
+        else if ($currentFloor == 2) {
+            echo '<audio src="../audio/floor2.mp3" id="my_audio"></audio>
+			 <script type="text/javascript">
+			   setTimeout(function(){
+				 document.getElementById("my_audio").play();
+			   }, 8000)
+			 </script>';
+			 echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+			 <script type="text/javascript">
+			   setTimeout(function(){
+				 document.getElementById("audio_open").play();
+			   }, 9000)
+			 </script>';
+        } else if ($currentFloor == 3) {
+            echo '<audio src="../audio/floor3.mp3" id="my_audio"></audio>
+                <script type="text/javascript">
+                setTimeout(function(){
+                    document.getElementById("my_audio").play();
+                }, 8000)
+                </script>';
+                echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+                <script type="text/javascript">
+                setTimeout(function(){
+                    document.getElementById("audio_open").play();
+                }, 9000)
+                </script>';
+    
         }
+
 
     //     $elevatorQueue = get_table_data($path, $user, $pass, $queue_tablename);
     //     $elevatorNetwork = get_table_data($path, $user, $pass, $tablename);
