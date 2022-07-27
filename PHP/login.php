@@ -53,13 +53,13 @@
         $_SESSION['username'] = $username;
         echo "<p>Congratulations, you are now logged into the site.</p>";
         echo "<p>Click <a href=\"admin.php\">here</a> to manage users.</p>";
-        echo "<p>Please click <a href=\"elevatorControl.php\">here</a> to be taken to our members only page</p>";
+        echo "<p>Please click <a href=\"elevatorControl1.php\">here</a> to be taken to our members only page</p>";
     } 
 
     if ($authenticated) {
         $_SESSION['username'] = $username;
         echo "<p>Congratulations, you are now logged into the site.</p>";
-        echo "<p>Please click <a href=\"elevatorControl.php\">here</a> to be taken to our members only page</p>";
+        echo "<p>Please click <a href=\"elevatorControl1.php\">here</a> to be taken to our members only page</p>";
     }
     // else {
     //     echo "<p>Please enter a username and password</p>";
