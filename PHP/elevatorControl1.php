@@ -91,6 +91,10 @@
             echo "Floor 1 is pressed";
             insert($path, $user, $pass, "1");
         }
+        else if(isset($_POST['stop'])) {
+            echo "Stop is pressed";
+            insert($path, $user, $pass, "0");
+        }
 
     //     $elevatorQueue = get_table_data($path, $user, $pass, $queue_tablename);
     //     $elevatorNetwork = get_table_data($path, $user, $pass, $tablename);
@@ -240,7 +244,7 @@
 						<button type="button" class="btn btn-secondary btn-lg" id="emergency">Emergency</button><br/><br/> 
 					</div>
 					<div id="stopButton">
-						<button type="button" class="btn btn-danger s btn-lg" id="stop">STOP</button><br/><br/><br/>
+						<button type="button" class="btn btn-danger s btn-lg" name="stop">STOP</button><br/><br/><br/>
 					</div>
 					<div>
 						<p>Click <a href='../PHP/logout.php'>here</a> to log out</p>
