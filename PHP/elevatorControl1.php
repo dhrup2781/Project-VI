@@ -140,10 +140,10 @@
         //echo "Connected";
     
         if(isset($_POST['three'])) {
-            echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
-			<script type="text/javascript">
-				document.getElementById("audio_close").play();
-			</script>';
+            // echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
+			// <script type="text/javascript">
+			// 	document.getElementById("audio_close").play();
+			// </script>';
             echo "Floor 3 is pressed";
             insert($path, $user, $pass, "3");
             $counter = read_c3($path, $user, $pass, "elevatorNetwork") + 1;
@@ -167,10 +167,10 @@
             //    </script>';
         }
         else if(isset($_POST['two'])) {
-            echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
-			<script type="text/javascript">
-				document.getElementById("audio_close").play();
-			</script>';
+            // echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
+			// <script type="text/javascript">
+			// 	document.getElementById("audio_close").play();
+			// </script>';
             echo "Floor 2 is pressed";
             insert($path, $user, $pass, "2");
             $counter = read_c2($path, $user, $pass, "elevatorNetwork") + 1;
@@ -189,10 +189,10 @@
             // </script>';
         }
         else if(isset($_POST['one'])) {
-            echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
-			<script type="text/javascript">
-				document.getElementById("audio_close").play();
-			</script>';
+            // echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
+			// <script type="text/javascript">
+			// 	document.getElementById("audio_close").play();
+			// </script>';
             echo "Floor 1 is pressed";
             insert($path, $user, $pass, "1");
             $counter = read_c1($path, $user, $pass, "elevatorNetwork") + 1;
