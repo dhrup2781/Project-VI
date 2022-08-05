@@ -226,48 +226,48 @@
             break;    
         }
 
-        if ($currentFloor == 1) {
-            echo '<audio src="../audio/floor1.mp3" id="my_audio"></audio>
-			 <script type="text/javascript">
-			   setTimeout(function(){
-				 document.getElementById("my_audio").play();
-			   }, 8000)
-			 </script>';
-			 echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
-			 <script type="text/javascript">
-			   setTimeout(function(){
-				 document.getElementById("audio_open").play();
-			   }, 9000)
-			 </script>';
-        }
-        else if ($currentFloor == 2) {
-            echo '<audio src="../audio/floor2.mp3" id="my_audio"></audio>
-			 <script type="text/javascript">
-			   setTimeout(function(){
-				 document.getElementById("my_audio").play();
-			   }, 8000)
-			 </script>';
-			 echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
-			 <script type="text/javascript">
-			   setTimeout(function(){
-				 document.getElementById("audio_open").play();
-			   }, 9000)
-			 </script>';
-        } else if ($currentFloor == 3) {
-            echo '<audio src="../audio/floor3.mp3" id="my_audio"></audio>
-                <script type="text/javascript">
-                setTimeout(function(){
-                    document.getElementById("my_audio").play();
-                }, 8000)
-                </script>';
-                echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
-                <script type="text/javascript">
-                setTimeout(function(){
-                    document.getElementById("audio_open").play();
-                }, 9000)
-                </script>';
+        // if ($currentFloor == 1) {
+        //     echo '<audio src="../audio/floor1.mp3" id="my_audio"></audio>
+		// 	 <script type="text/javascript">
+		// 	   setTimeout(function(){
+		// 		 document.getElementById("my_audio").play();
+		// 	   }, 8000)
+		// 	 </script>';
+		// 	 echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+		// 	 <script type="text/javascript">
+		// 	   setTimeout(function(){
+		// 		 document.getElementById("audio_open").play();
+		// 	   }, 9000)
+		// 	 </script>';
+        // }
+        // else if ($currentFloor == 2) {
+        //     echo '<audio src="../audio/floor2.mp3" id="my_audio"></audio>
+		// 	 <script type="text/javascript">
+		// 	   setTimeout(function(){
+		// 		 document.getElementById("my_audio").play();
+		// 	   }, 8000)
+		// 	 </script>';
+		// 	 echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+		// 	 <script type="text/javascript">
+		// 	   setTimeout(function(){
+		// 		 document.getElementById("audio_open").play();
+		// 	   }, 9000)
+		// 	 </script>';
+        // } else if ($currentFloor == 3) {
+        //     echo '<audio src="../audio/floor3.mp3" id="my_audio"></audio>
+        //         <script type="text/javascript">
+        //         setTimeout(function(){
+        //             document.getElementById("my_audio").play();
+        //         }, 8000)
+        //         </script>';
+        //         echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+        //         <script type="text/javascript">
+        //         setTimeout(function(){
+        //             document.getElementById("audio_open").play();
+        //         }, 9000)
+        //         </script>';
     
-        }
+        // }
 
 
     //     $elevatorQueue = get_table_data($path, $user, $pass, $queue_tablename);
