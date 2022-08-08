@@ -127,6 +127,7 @@
 				document.getElementById("audio_close").play();
 			</script>';
             update_elevatorNetwork(3);
+<<<<<<< HEAD
 			$counter = read_c3($path, $user, $pass, "elevatorNetwork") + 1;
 			update_counter3($counter);
 			echo '<audio src="../audio/floor3.mp3" id="my_audio"></audio>
@@ -141,6 +142,10 @@
 				 document.getElementById("audio_open").play();
 			   }, 9000)
 			 </script>';
+=======
+           //sleep(5);
+            sleep(5);
+>>>>>>> main
         }
         else if(isset($_POST['two'])) {
 			echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
@@ -148,6 +153,7 @@
 				document.getElementById("audio_close").play();
 			</script>';
             update_elevatorNetwork(2);
+<<<<<<< HEAD
 			$counter = read_c2($path, $user, $pass, "elevatorNetwork") + 1;
 			update_counter2($counter);
 			 echo '<audio src="../audio/floor2.mp3" id="my_audio"></audio>
@@ -168,6 +174,12 @@
 			<script type="text/javascript">
 				document.getElementById("audio_close").play();
 			</script>';     
+=======
+            //sleep(5);
+        }
+        else if(isset($_POST['one'])) {
+            //sleep(5);
+>>>>>>> main
             update_elevatorNetwork(1);
 			$counter = read_c1($path, $user, $pass, "elevatorNetwork") + 1;
 			update_counter1($counter);

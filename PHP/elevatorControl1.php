@@ -418,7 +418,7 @@
 						<button type="button" class="btn btn-secondary btn-lg" id="emergency">Emergency</button><br/><br/> 
 					</div>
 					<div id="stopButton">
-						<button type="button" class="btn btn-danger s btn-lg" name="stop">STOP</button><br/><br/><br/>
+						<button type="button" class="btn btn-danger s btn-lg" id= "stop" name="stop">STOP</button><br/><br/><br/>
 					</div>
 					<div>
 						<p>Click <a href='../PHP/logout.php'>here</a> to log out</p>

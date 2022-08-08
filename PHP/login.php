@@ -36,6 +36,7 @@
     $query = "SELECT * FROM authorizedUsers WHERE username = '$username'";
     $rows = $db->query($query);
     foreach ($rows as $row) {
+        echo "User: ";
         echo $row['username'];
         echo "<br>";
         if($username === $row['username'] && $password === $row['password'] && $row['admin']==1) {
@@ -59,7 +60,7 @@
     if ($authenticated) {
         $_SESSION['username'] = $username;
         echo "<p>Congratulations, you are now logged into the site.</p>";
-        echo "<p>Please click <a href=\"elevatorControl1.php\">here</a> to be taken to our members only page</p>";
+        echo "<p>Please click <a href=\"elevatorControl1.php\">here</a> for Elevator Control</p>";
     }
     // else {
     //     echo "<p>Please enter a username and password</p>";
