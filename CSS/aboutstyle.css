@@ -30,10 +30,10 @@ table.top_table {
     border-color: purple;
 }
 
-table.map_table {
+#group_photo {
 
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 50px;
+    margin-right: 50px;
     border: 3px solid;
     border-color: purple;
     padding: 10px;

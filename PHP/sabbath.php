@@ -69,6 +69,22 @@
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 2;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
+            echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
+			<script type="text/javascript">
+				document.getElementById("audio_close").play();
+			</script>';  
+            echo '<audio src="../audio/floor1.mp3" id="my_audio"></audio>
+            <script type="text/javascript">
+              setTimeout(function(){
+                document.getElementById("my_audio").play();
+              }, 8000)
+            </script>';
+            echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+            <script type="text/javascript">
+              setTimeout(function(){
+                document.getElementById("audio_open").play();
+              }, 9000)
+            </script>';
             // sleep(9);
             
         }
@@ -76,12 +92,44 @@
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 3;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
+            echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
+			<script type="text/javascript">
+				document.getElementById("audio_close").play();
+			</script>';
+            echo '<audio src="../audio/floor2.mp3" id="my_audio"></audio>
+            <script type="text/javascript">
+              setTimeout(function(){
+                document.getElementById("my_audio").play();
+              }, 8000)
+            </script>';
+            echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+            <script type="text/javascript">
+              setTimeout(function(){
+                document.getElementById("audio_open").play();
+              }, 9000)
+            </script>';
             // sleep(9);
         }
         else if ($currfloor == 3) {
             // echo "Current Floor: " . json_encode($currfloor);
             $newfloor = 1;
             update_currentFloor($path, $user, $password, $tablename, $newfloor );
+            echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
+			<script type="text/javascript">
+				document.getElementById("audio_close").play();
+			</script>';
+            echo '<audio src="../audio/floor3.mp3" id="my_audio"></audio>
+            <script type="text/javascript">
+              setTimeout(function(){
+                document.getElementById("my_audio").play();
+              }, 8000)
+            </script>';
+            echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+            <script type="text/javascript">
+              setTimeout(function(){
+                document.getElementById("audio_open").play();
+              }, 9000)
+            </script>';
             // sleep(9);
         }
     // }
@@ -95,13 +143,13 @@
 
 <body>
   <p> Current floor number - updates every 5 seconds or after pressing button </p>
-  <form action="">
+  <!-- <form action="">
     <button id="myButton">Get current floor now!</button>  
   </form>
-  <p> Current Floor: <span id='floor'></span> </p>
+  <p> Current Floor: <span id='floor'></span> </p> -->
 
   <!-- Add JavaScript before closing body tag -->
-  <script src='../JS/getFloor.js'></script>
+  <!-- <script src='../JS/getFloor.js'></script> -->
   <!-- Initialize a global variable for the floor number-->
   <script type='text/javascript'>var floor;</script>
 </body>

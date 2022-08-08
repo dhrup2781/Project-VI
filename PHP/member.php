@@ -11,7 +11,7 @@
 
         // Display the form
         // require '../HTML/elevatorControl.html';
-        require '../PHP/elevatorControl.php';
+        require '../PHP/elevatorControl1.php';
         // require '../HTML/elevatorNetworkForm.html';
 
         // // Connect to database and make changes

@@ -6,7 +6,6 @@
     }
 
     function showtable(string $path, string $user, string $pass, $tablename) {
-        echo "<h3>Elevator Queue</h3>";
         $db = connect($path, $user, $pass); 
         $query = "SELECT * FROM $tablename";  // Note: Risk of SQL injection
         $rows = $db->query($query); 
@@ -17,13 +16,22 @@
     }
 
     function show_network_table(string $path, string $user, string $pass, $tablename) {
-        echo "<h3>Elevator Queue</h3>";
         $db = connect($path, $user, $pass); 
         $query = "SELECT * FROM $tablename";  // Note: Risk of SQL injection
         $rows = $db->query($query); 
         echo "id|status|currentFloor|RequestedFloor<br>";
         foreach ($rows as $row) {
             echo $row['nodeID'] . " | " . $row['status'] ." | " . $row['currentFloor'] ." | " . $row['requestedFloor'] . "<br>";
+        }
+    }
+
+	function show_currentFloor(string $path, string $user, string $pass, $tablename) {
+        $db = connect($path, $user, $pass); 
+        $query = "SELECT * FROM $tablename";  // Note: Risk of SQL injection
+        $rows = $db->query($query); 
+        echo "Current floor: ";
+        foreach ($rows as $row) {
+            echo $row['currentFloor'] . "<br>";
         }
     }
 
@@ -35,7 +43,66 @@
 		$statement = $db1->prepare($query);
 		$statement->bindvalue('floor', $new_floor);
 		$statement->execute();
+    }
 
+	function update_counter1(int $c1) {
+		$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');
+		$query = 'UPDATE elevatorNetwork 
+				SET C1 = :counter
+				WHERE nodeID = 1';
+		$statement = $db1->prepare($query);
+		$statement->bindvalue('counter', $c1);
+		$statement->execute();
+
+	}
+
+	function update_counter2(int $c2) {
+		$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');
+		$query = 'UPDATE elevatorNetwork 
+				SET C2 = :counter
+				WHERE nodeID = 1';
+		$statement = $db1->prepare($query);
+		$statement->bindvalue('counter', $c2);
+		$statement->execute();
+
+	}
+	function update_counter3(int $c3) {
+		$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');
+		$query = 'UPDATE elevatorNetwork 
+				SET C3 = :counter
+				WHERE nodeID = 1';
+		$statement = $db1->prepare($query);
+		$statement->bindvalue('counter', $c3);
+		$statement->execute();
+
+	}
+
+	function read_c1(string $path, string $user, string $pass, $tablename) {
+        $db = connect($path, $user, $pass); 
+        $query = "SELECT * FROM $tablename";  // Note: Risk of SQL injection
+        $rows = $db->query($query); 
+        foreach ($rows as $row) {
+            $counter = $row['C1'];
+        }
+		return ($counter);
+    }
+	function read_c2(string $path, string $user, string $pass, $tablename) {
+        $db = connect($path, $user, $pass); 
+        $query = "SELECT * FROM $tablename";  // Note: Risk of SQL injection
+        $rows = $db->query($query); 
+        foreach ($rows as $row) {
+            $counter = $row['C2'];
+        }
+		return ($counter);
+    }
+	function read_c3(string $path, string $user, string $pass, $tablename) {
+        $db = connect($path, $user, $pass); 
+        $query = "SELECT * FROM $tablename";  // Note: Risk of SQL injection
+        $rows = $db->query($query); 
+        foreach ($rows as $row) {
+            $counter = $row['C3'];
+        }
+		return ($counter);
     }
     
     //session_start(); 
@@ -55,23 +122,84 @@
         //echo "Connected";
     
         if(isset($_POST['three'])) {
+			echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
+			<script type="text/javascript">
+				document.getElementById("audio_close").play();
+			</script>';
             update_elevatorNetwork(3);
 <<<<<<< HEAD
-           //sleep(5);
+			$counter = read_c3($path, $user, $pass, "elevatorNetwork") + 1;
+			update_counter3($counter);
+			echo '<audio src="../audio/floor3.mp3" id="my_audio"></audio>
+			 <script type="text/javascript">
+			   setTimeout(function(){
+				 document.getElementById("my_audio").play();
+			   }, 8000)
+			 </script>';
+			 echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+			 <script type="text/javascript">
+			   setTimeout(function(){
+				 document.getElementById("audio_open").play();
+			   }, 9000)
+			 </script>';
 =======
+           //sleep(5);
             sleep(5);
->>>>>>> 61122e95b123861887bc0d6aff58a56b4ba49acf
+>>>>>>> main
         }
         else if(isset($_POST['two'])) {
+			echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
+			<script type="text/javascript">
+				document.getElementById("audio_close").play();
+			</script>';
             update_elevatorNetwork(2);
+<<<<<<< HEAD
+			$counter = read_c2($path, $user, $pass, "elevatorNetwork") + 1;
+			update_counter2($counter);
+			 echo '<audio src="../audio/floor2.mp3" id="my_audio"></audio>
+			 <script type="text/javascript">
+			   setTimeout(function(){
+				 document.getElementById("my_audio").play();
+			   }, 8000)
+			 </script>';
+			 echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+			 <script type="text/javascript">
+			   setTimeout(function(){
+				 document.getElementById("audio_open").play();
+			   }, 9000)
+			 </script>';
+		}
+        else if(isset($_POST['one'])) {    
+			echo '<audio src="../audio/doorclose.mp3" id="audio_close"></audio>
+			<script type="text/javascript">
+				document.getElementById("audio_close").play();
+			</script>';     
+=======
             //sleep(5);
         }
         else if(isset($_POST['one'])) {
             //sleep(5);
+>>>>>>> main
             update_elevatorNetwork(1);
+			$counter = read_c1($path, $user, $pass, "elevatorNetwork") + 1;
+			update_counter1($counter);
+			 echo '<audio src="../audio/floor1.mp3" id="my_audio"></audio>
+			 <script type="text/javascript">
+			   setTimeout(function(){
+				 document.getElementById("my_audio").play();
+			   }, 8000)
+			 </script>';
+			 echo '<audio src="../audio/dooropen.mp3" id="audio_open"></audio>
+			 <script type="text/javascript">
+			   setTimeout(function(){
+				 document.getElementById("audio_open").play();
+			   }, 9000)
+			 </script>';
         }
 
-        show_network_table( $path,  $user,  $pass, "elevatorNetwork");
+		show_currentFloor( $path,  $user,  $pass, "elevatorNetwork");
+
+       // show_network_table( $path,  $user,  $pass, "elevatorNetwork");
 ?>
 
 <html lang="en">
@@ -93,35 +221,6 @@
                 background-size: cover;
             }
         </style>
-        <div id="head_wrap">
-			<header>
-				<nav class="navbar navbar-inverse navbar-fixed-top top_menu" role="navigation">	
-					<!-- Logo and collapsible menu --> 
-					<div class="navbar-header">
-						<!-- Collapsible version of navbar goes here with a target to the id below -->
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a href="index.html" class="navbar-brand">Project VI</a>
-					</div>
-					<!-- Side Menu - collapses to small menu on small screens -->
-					<div class="collapse navbar-collapse" id="myNavbar">
-						<ul class="nav navbar-nav navbar-right s_menu">
-							<li><a href="../HTML/about.html">About</a></li>
-							<li><a href="../HTML/project_plan.html">Plan</a></li>
-							<li><a href="../HTML/logbook.html">Log Book</a></li>
-							<li><a href="../HTML/login.html">Log in</a></li>
-							<li><a href="../HTML/request_access.html">Signup</a></li>
-							<!-- <li><a href="../HTML/index.php">Elevator Control</a></li> -->
-							<li><a href="../HTML/resources.html">Resources</a></li>
-						</ul>
-					</div>
-				</nav>	
-			</header>
-		</div>
         <br/>
 		<br/>
 		<br/>
@@ -131,17 +230,15 @@
 					<h1>Elevator Console</h1><br/><br/>
 				</div>
 				<div id="elevatorButtons">
-					<div>
-						<h3>Current Floor:</h1>
-					</div>
 					<div id="floorButtons">
 						<br/><button type="submit" class="btn btn-primary btn-lg" name="three" onclick="playMusic3()">3</button><br/><br/>
 						<button type="submit" class="btn btn-primary btn-lg"  name="two" onclick="playMusic2()">2</button><br/><br/>
 						<button type="submit" class="btn btn-primary btn-lg"  name="one" onclick="playMusic1()">1</button><br/><br/>
 					</div>
 					<div id="doorButtons">
-						<button type="button" class="btn btn-secondary btn-lg" name="openDoor" onclick="playMusicDO()">OPEN DOOR</button>
-						<button type="button" class="btn btn-secondary btn-lg" name="closeDoor" onclick="playMusicDC()">CLOSE DOOR</button><br/><br/>
+						<button type="button" class="btn btn-secondary btn-lg" id="opendoor" name="openDoor" onclick="playMusicDO()">OPEN DOOR</button>
+						<button type="button" class="btn btn-secondary btn-lg" id="closedoor" name="closeDoor" onclick="playMusicDC()">CLOSE DOOR</button><br/><br/>
+						<!-- <audio id="audio" src="../audio/doorclose.mp3"></audio> -->
 					</div>
 					<div id="extraButtons">
 						<button type="button" class="btn btn-secondary btn-lg" id="help">Help</button>
